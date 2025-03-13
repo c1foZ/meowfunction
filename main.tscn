@@ -7,19 +7,27 @@
 [node name="Main" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_ig7tw")]
-position = Vector2(965, 543)
+position = Vector2(451, 277)
 
 [node name="Player" parent="." instance=ExtResource("2_0xm2m")]
-position = Vector2(935, 505)
+position = Vector2(467, 277)
 
 [node name="Rabbit" type="Sprite2D" parent="."]
-position = Vector2(347, 256)
+position = Vector2(97, 79)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_h2yge")
 
 [node name="Rabbit2" type="Sprite2D" parent="."]
-position = Vector2(1546, 262)
+position = Vector2(851, 83)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_h2yge")
 
 [node name="Rabbit3" type="Sprite2D" parent="."]
-position = Vector2(1320, 711)
+position = Vector2(853, 450)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_h2yge")
+
+[node name="Rabbit4" type="Sprite2D" parent="."]
+position = Vector2(108, 442)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_h2yge")
