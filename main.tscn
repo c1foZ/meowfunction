@@ -19,3 +19,7 @@ texture = ExtResource("3_h2yge")
 [node name="Rabbit2" type="Sprite2D" parent="."]
 position = Vector2(1546, 262)
 texture = ExtResource("3_h2yge")
+
+[node name="Rabbit3" type="Sprite2D" parent="."]
+position = Vector2(1320, 711)
+texture = ExtResource("3_h2yge")
