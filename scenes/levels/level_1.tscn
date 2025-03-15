@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://3i8vsm64o75c"]
+[gd_scene load_steps=21 format=4 uid="uid://3i8vsm64o75c"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_6761a"]
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_sk5k4"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://4nthasu5jv3q" path="res://scenes/ending_area.tscn" id="5_dga24"]
 [ext_resource type="Texture2D" uid="uid://c540osxufuutr" path="res://assets/Wood_Bridge.png" id="5_oc4kc"]
 [ext_resource type="Script" uid="uid://cuk5wlq1utgjm" path="res://scenes/levels/bridge.gd" id="5_s8va5"]
+[ext_resource type="Texture2D" uid="uid://dnu4jifcm0ulq" path="res://assets/Basic_Grass_Biom_things.png" id="7_dga24"]
+[ext_resource type="Script" uid="uid://cp8qbfg8vi3f3" path="res://scenes/levels/flowers.gd" id="7_qxy0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
 texture = ExtResource("2_sk5k4")
@@ -326,6 +328,57 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s8va5")
 sources/1 = SubResource("TileSetAtlasSource_dga24")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxy0u"]
+texture = ExtResource("7_dga24")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_excbq"]
+sources/0 = SubResource("TileSetAtlasSource_qxy0u")
+
 [node name="Level1" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_6761a")]
@@ -370,7 +423,7 @@ bridge_button = NodePath("../Buttons/BridgeButton")
 texture_filter = 1
 position = Vector2(-15, 10)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAtAAoAAAACAAAAAAAwAAoAAAADAAAAAAAxAAoAAAAEAAAAAAAuAAoAAQAIAAUAAAAeAAYAAAACAAAAAAAhAAYAAAAEAAAAAAAfAAYAAAADAAAAAAAgAAYAAQAHAAYAAAA=")
+tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAhAAYAAAAEAAAAAAAfAAYAAAADAAAAAAAgAAYAAQAHAAYAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
 [node name="BridgeTileNew" type="TileMapLayer" parent="Bridge"]
@@ -387,9 +440,28 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaAA4AAAABAAEAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
+[node name="Flowers" type="Node" parent="." node_paths=PackedStringArray("flower_broken", "flower_new", "flower_button")]
+script = ExtResource("7_qxy0u")
+flower_broken = NodePath("FlowersBroken")
+flower_new = NodePath("FlowersNew")
+flower_button = NodePath("../Buttons/FlowerButton")
+
+[node name="FlowersBroken" type="TileMapLayer" parent="Flowers"]
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAaABIAAAAHAAMAAAAZABIAAAAHAAIAAAAZABMAAAAHAAMAAAAZABUAAAAHAAMAAAAZABcAAAAHAAMAAAAZABgAAAAHAAIAAAAZABYAAAAHAAIAAAAZABQAAAAHAAIAAAAaABMAAAAHAAIAAAAaABUAAAAHAAIAAAAaABcAAAAHAAIAAAAaABgAAAAHAAMAAAAaABYAAAAHAAMAAAAaABQAAAAHAAMAAAAbABIAAAAHAAIAAAAbABMAAAAHAAMAAAAbABQAAAAHAAIAAAAbABUAAAAHAAMAAAAbABYAAAAHAAIAAAAbABcAAAAHAAMAAAAbABgAAAAHAAIAAAAcABIAAAAHAAMAAAAcABMAAAAHAAIAAAAcABQAAAAHAAMAAAAcABUAAAAHAAIAAAAcABYAAAAHAAMAAAAcABcAAAAHAAIAAAAcABgAAAAHAAMAAAAdABIAAAAHAAIAAAAdABMAAAAHAAMAAAAdABQAAAAHAAIAAAAdABUAAAAHAAMAAAAdABYAAAAHAAIAAAAdABcAAAAHAAMAAAAdABgAAAAHAAIAAAAeABIAAAAHAAMAAAAeABMAAAAHAAIAAAAeABQAAAAHAAMAAAAeABUAAAAHAAIAAAAeABYAAAAHAAMAAAAeABcAAAAHAAIAAAAeABgAAAAHAAMAAAAfABIAAAAHAAIAAAAfABMAAAAHAAMAAAAfABQAAAAHAAIAAAAfABUAAAAHAAMAAAAfABYAAAAHAAIAAAAfABcAAAAHAAMAAAAfABgAAAAHAAIAAAAgABIAAAAHAAMAAAAgABMAAAAHAAIAAAAgABQAAAAHAAMAAAAgABUAAAAHAAIAAAAgABYAAAAHAAMAAAAgABcAAAAHAAIAAAAgABgAAAAHAAMAAAAhABIAAAAHAAIAAAAhABMAAAAHAAMAAAAhABQAAAAHAAIAAAAhABUAAAAHAAMAAAAhABYAAAAHAAIAAAAhABcAAAAHAAIAAAAhABgAAAAHAAIAAAAiABIAAAAHAAMAAAAiABMAAAAHAAIAAAAiABQAAAAHAAMAAAAiABUAAAAHAAIAAAAiABYAAAAHAAMAAAAiABcAAAAHAAIAAAAiABgAAAAHAAMAAAAjABIAAAAHAAIAAAAjABMAAAAHAAMAAAAjABQAAAAHAAIAAAAjABUAAAAHAAMAAAAjABYAAAAHAAIAAAAjABcAAAAHAAMAAAAjABgAAAAHAAIAAAAkABIAAAAHAAMAAAAkABMAAAAHAAIAAAAkABQAAAAHAAMAAAAkABUAAAAHAAIAAAAkABYAAAAHAAMAAAAkABcAAAAHAAIAAAAkABgAAAAHAAMAAAAYABgAAAAHAAMAAAAYABcAAAAHAAIAAAAYABYAAAAHAAMAAAAYABUAAAAHAAIAAAAYABMAAAAHAAIAAAAYABQAAAAHAAMAAAAYABIAAAAHAAMAAAA=")
+tile_set = SubResource("TileSet_excbq")
+
+[node name="FlowersNew" type="TileMapLayer" parent="Flowers"]
+visible = false
+texture_filter = 1
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAaABIAAAAHAAMAAAAZABIAAAAHAAIAAAAZABMAAAAHAAMAAAAZABUAAAAHAAMAAAAZABcAAAAHAAMAAAAZABgAAAAHAAIAAAAZABYAAAAHAAIAAAAZABQAAAAHAAIAAAAaABMAAAAHAAIAAAAaABUAAAAHAAIAAAAaABcAAAAHAAIAAAAaABgAAAAHAAMAAAAaABYAAAAHAAMAAAAaABQAAAAHAAMAAAAbABIAAAAHAAIAAAAbABMAAAAHAAMAAAAbABQAAAAHAAIAAAAbABUAAAAHAAMAAAAbABYAAAAHAAIAAAAbABcAAAAHAAMAAAAbABgAAAAHAAIAAAAcABIAAAAHAAMAAAAcABMAAAAHAAIAAAAcABQAAAAHAAMAAAAcABUAAAAHAAIAAAAcABYAAAAHAAMAAAAcABcAAAAHAAIAAAAcABgAAAAHAAMAAAAdABIAAAAHAAIAAAAdABMAAAAHAAMAAAAdABQAAAAHAAIAAAAdABUAAAAHAAMAAAAdABYAAAAHAAIAAAAdABcAAAAHAAMAAAAdABgAAAAHAAIAAAAeABIAAAAHAAMAAAAeABMAAAAHAAIAAAAeABQAAAAHAAMAAAAeABUAAAAHAAIAAAAeABYAAAAHAAMAAAAeABcAAAAHAAIAAAAeABgAAAAHAAMAAAAfABIAAAAHAAIAAAAfABMAAAAHAAMAAAAfABQAAAAHAAIAAAAfABUAAAAHAAMAAAAfABYAAAAHAAIAAAAfABcAAAAHAAMAAAAfABgAAAAHAAIAAAAgABIAAAAHAAMAAAAgABMAAAAHAAIAAAAgABQAAAAHAAMAAAAgABUAAAAHAAIAAAAgABYAAAAHAAMAAAAgABcAAAAHAAIAAAAgABgAAAAHAAMAAAAhABIAAAAHAAIAAAAhABMAAAAHAAMAAAAhABQAAAAHAAIAAAAhABUAAAAHAAMAAAAhABYAAAAHAAIAAAAhABcAAAAHAAMAAAAhABgAAAAHAAIAAAAiABIAAAAHAAMAAAAiABMAAAAHAAIAAAAiABQAAAAHAAMAAAAiABUAAAAHAAIAAAAiABYAAAAHAAMAAAAiABcAAAAHAAIAAAAiABgAAAAHAAMAAAAjABIAAAAHAAIAAAAjABMAAAAHAAMAAAAjABQAAAAHAAIAAAAjABUAAAAHAAMAAAAjABYAAAAHAAIAAAAjABcAAAAHAAMAAAAjABgAAAAHAAIAAAAkABIAAAAHAAMAAAAkABMAAAAHAAIAAAAkABQAAAAHAAMAAAAkABUAAAAHAAIAAAAkABYAAAAHAAMAAAAkABcAAAAHAAIAAAAkABgAAAAHAAMAAAAYABgAAAAHAAMAAAAYABcAAAAHAAIAAAAYABYAAAAHAAMAAAAYABUAAAAHAAIAAAAYABMAAAAHAAIAAAAYABQAAAAHAAMAAAAYABIAAAAHAAMAAAA=")
+tile_set = SubResource("TileSet_excbq")
+
 [node name="Player" parent="." instance=ExtResource("3_oc4kc")]
 z_index = 1
-position = Vector2(122, 321)
+position = Vector2(1063, 467)
 
 [node name="EndingArea" parent="." instance=ExtResource("5_dga24")]
 position = Vector2(1904, 317)
@@ -411,6 +483,14 @@ offset_top = 448.0
 offset_right = 862.0
 offset_bottom = 479.0
 
+[node name="FlowerButton" type="Button" parent="Buttons"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1059.0
+offset_top = 742.0
+offset_right = 1083.0
+offset_bottom = 763.0
+
 [connection signal="body_entered" from="EndingArea" to="Player" method="_on_ending_area_body_entered"]
 [connection signal="pressed" from="Buttons/TreeButton" to="Tree" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="Buttons/BridgeButton" to="Bridge" method="_on_bridge_button_pressed"]
+[connection signal="pressed" from="Buttons/FlowerButton" to="Flowers" method="_on_flower_button_pressed"]
