@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bh4nqmuifffed"]
+[gd_scene load_steps=19 format=3 uid="uid://bh4nqmuifffed"]
 
 [ext_resource type="Script" uid="uid://mmjnv8pjxuy" path="res://scenes/radio_active_npc_cat.gd" id="1_ho5ed"]
 [ext_resource type="Texture2D" uid="uid://both2hc252nrh" path="res://assets/black_3.png" id="1_ltbwl"]
 [ext_resource type="AudioStream" uid="uid://csh3cpu2hswr2" path="res://assets/sounds/bird_sound.mp3" id="3_58p8y"]
+[ext_resource type="AudioStream" uid="uid://dyfowljlftbdb" path="res://assets/sounds/fixed_meow.wav" id="4_2i0nq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho5ed"]
 size = Vector2(27, 27)
@@ -136,11 +137,14 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_guaha")
 animation = &"idle"
-frame_progress = 0.380552
+frame_progress = 0.199955
 
 [node name="BirdSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_58p8y")
 volume_db = 15.626
+
+[node name="MeowSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_2i0nq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -148,4 +152,12 @@ volume_db = 15.626
 scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_58p8y")
 
+[node name="Button" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -25.0
+offset_top = -21.0
+offset_right = 20.0
+offset_bottom = 20.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

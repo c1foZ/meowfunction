@@ -432,7 +432,7 @@ visible = false
 texture_filter = 1
 position = Vector2(-15, 10)
 scale = Vector2(3, 3)
-tile_map_data = PackedByteArray("AAAtAAoAAAACAAAAAAAwAAoAAAADAAAAAAAxAAoAAAAEAAAAAAAuAAoAAQAIAAUAAAAeAAYAAAACAAAAAAAfAAYAAAADAAAAAAAgAAYAAAADAAAAAAAhAAYAAAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAfAAYAAAADAAAAAAAgAAYAAAADAAAAAAAhAAYAAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
 [node name="BridgePiece" type="TileMapLayer" parent="Bridge"]
