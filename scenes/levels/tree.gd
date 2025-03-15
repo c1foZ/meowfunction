@@ -31,7 +31,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "It wasn't always like this."
-		old_tree.get_node("Area2D").queue_free()
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false 
 
 		
 		
