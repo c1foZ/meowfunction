@@ -24,6 +24,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		var current_size = 16
 		rich_text.add_theme_font_size_override("normal_font_size", current_size - 2)
 		rich_text.text = "A piece of something. But where does it belong?"
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false 
 
 
 func _on_area_2d_bridge_broken_body_entered(body: Node2D) -> void:
@@ -32,6 +34,8 @@ func _on_area_2d_bridge_broken_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "This... isn't complete."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false 
 
 
 func _on_area_2d_body_new_bridge_entered(body: Node2D) -> void:
@@ -40,3 +44,5 @@ func _on_area_2d_body_new_bridge_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Now it makes sense."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false 

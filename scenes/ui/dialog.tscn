@@ -34,6 +34,6 @@ offset_top = 32.0
 offset_right = 395.0
 offset_bottom = 71.0
 mouse_filter = 2
-text = "\"Something isn't quite right. I can feel it."
+text = "Something isn't quite right. I can feel it."
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

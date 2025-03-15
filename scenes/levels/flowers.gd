@@ -22,6 +22,8 @@ func _on_flower_button_pressed() -> void:
 	dialog_node.visible = true
 	var rich_text = dialog_node.get_node("RichTextLabel")
 	rich_text.text = "That's better. But why did it bother me?"
+	await get_tree().create_timer(3.0).timeout
+	dialog_node.visible = false 
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -30,3 +32,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Something feels... off."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false 

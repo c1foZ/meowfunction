@@ -23,6 +23,8 @@ func _on_tree_button_pressed() -> void:
 	dialog_node.visible = true
 	var rich_text = dialog_node.get_node("RichTextLabel")
 	rich_text.text = "Standing tall again. Was it meant to fall?"
+	await get_tree().create_timer(3.0).timeout
+	dialog_node.visible = false 
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
