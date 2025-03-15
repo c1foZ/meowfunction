@@ -105,6 +105,6 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"walk-right"
 autoplay = "idle-right"
-frame_progress = 0.958596
+frame_progress = 0.0499134
 
 [node name="Camera2D" type="Camera2D" parent="."]
