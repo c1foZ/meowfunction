@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://bh4nqmuifffed"]
 
-[ext_resource type="Script" uid="uid://mmjnv8pjxuy" path="res://scenes/radio_active_npc_cat.gd" id="1_ho5ed"]
+[ext_resource type="Script" uid="uid://mmjnv8pjxuy" path="res://scripts/radio_active_npc_cat.gd" id="1_ho5ed"]
 [ext_resource type="Texture2D" uid="uid://both2hc252nrh" path="res://assets/black_3.png" id="1_ltbwl"]
 [ext_resource type="AudioStream" uid="uid://csh3cpu2hswr2" path="res://assets/sounds/bird_sound.mp3" id="3_58p8y"]
 [ext_resource type="AudioStream" uid="uid://dyfowljlftbdb" path="res://assets/sounds/fixed_meow.wav" id="4_2i0nq"]

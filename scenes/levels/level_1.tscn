@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_sk5k4"]
 [ext_resource type="Texture2D" uid="uid://c4n572405463m" path="res://assets/Grass_Biom_Things.png" id="3_6761a"]
 [ext_resource type="PackedScene" uid="uid://dedep6pt71cnb" path="res://scenes/player.tscn" id="3_oc4kc"]
-[ext_resource type="Script" uid="uid://ctsf8yww3xrn2" path="res://scenes/levels/tree.gd" id="3_sk5k4"]
+[ext_resource type="Script" uid="uid://ctsf8yww3xrn2" path="res://scripts/tree.gd" id="3_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://4nthasu5jv3q" path="res://scenes/ending_area.tscn" id="5_dga24"]
 [ext_resource type="Texture2D" uid="uid://c540osxufuutr" path="res://assets/Wood_Bridge.png" id="5_oc4kc"]
 [ext_resource type="Script" uid="uid://cuk5wlq1utgjm" path="res://scenes/levels/bridge.gd" id="5_s8va5"]

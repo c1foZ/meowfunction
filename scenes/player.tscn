@@ -1,9 +1,10 @@
-[gd_scene load_steps=43 format=3 uid="uid://dedep6pt71cnb"]
+[gd_scene load_steps=44 format=3 uid="uid://dedep6pt71cnb"]
 
 [ext_resource type="Script" uid="uid://dkaybt3k228l5" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bp4ktnw7v2oed" path="res://assets/pink_spritesheet.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://cr4o6vhjfocsx" path="res://assets/sounds/broken_meow.wav" id="3_qhqgy"]
 [ext_resource type="PackedScene" uid="uid://ri2ynm1x7osx" path="res://scenes/ui/dialog.tscn" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://8e8hjas0btwr" path="res://scenes/ui/objectives.tscn" id="5_qlg0r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(15, 13)
@@ -363,5 +364,12 @@ stream = ExtResource("3_qhqgy")
 
 [node name="Dialog" parent="." instance=ExtResource("4_dqkch")]
 position = Vector2(17, -79)
+
+[node name="Objectives" parent="." instance=ExtResource("5_qlg0r")]
+offset_left = -467.0
+offset_top = -289.0
+offset_right = -467.0
+offset_bottom = -289.0
+script = null
 
 [connection signal="tree_entered" from="Dialog" to="." method="_on_dialog_tree_entered"]
