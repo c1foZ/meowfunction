@@ -13,7 +13,6 @@ config_version=5
 config/name="puls_game_jam"
 run/main_scene="uid://b1f3aj5p41w3j"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://assets/icon.svg"
 
 [display]
 

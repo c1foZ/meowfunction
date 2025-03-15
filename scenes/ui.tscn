@@ -12,6 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_nt7q6")
 
 [node name="StartGame" type="Button" parent="."]
+texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
