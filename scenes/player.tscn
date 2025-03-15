@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dedep6pt71cnb"]
+[gd_scene load_steps=44 format=3 uid="uid://dedep6pt71cnb"]
 
 [ext_resource type="Script" uid="uid://dkaybt3k228l5" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bp4ktnw7v2oed" path="res://assets/pink_spritesheet.png" id="2_g2els"]
@@ -339,6 +339,58 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="FontFile" id="FontFile_dqkch"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/100/0/ascent = 0.0
+cache/0/100/0/descent = 0.0
+cache/0/100/0/underline_position = 0.0
+cache/0/100/0/underline_thickness = 0.0
+cache/0/100/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/15/0/ascent = 0.0
+cache/0/15/0/descent = 0.0
+cache/0/15/0/underline_position = 0.0
+cache/0/15/0/underline_thickness = 0.0
+cache/0/15/0/scale = 1.0
+cache/0/25/0/ascent = 0.0
+cache/0/25/0/descent = 0.0
+cache/0/25/0/underline_position = 0.0
+cache/0/25/0/underline_thickness = 0.0
+cache/0/25/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/17/0/ascent = 0.0
+cache/0/17/0/descent = 0.0
+cache/0/17/0/underline_position = 0.0
+cache/0/17/0/underline_thickness = 0.0
+cache/0/17/0/scale = 1.0
+cache/0/18/0/ascent = 0.0
+cache/0/18/0/descent = 0.0
+cache/0/18/0/underline_position = 0.0
+cache/0/18/0/underline_thickness = 0.0
+cache/0/18/0/scale = 1.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_onrkg")
 speed = 300
@@ -362,4 +414,16 @@ autoplay = "idle_right"
 stream = ExtResource("3_qhqgy")
 
 [node name="Dialog" parent="." instance=ExtResource("4_dqkch")]
-position = Vector2(36, -94)
+position = Vector2(17, -79)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Dialog"]
+modulate = Color(0.252102, 0.092646, 0.0394763, 1)
+offset_left = 30.0
+offset_top = 33.0
+offset_right = 351.0
+offset_bottom = 60.0
+theme_override_fonts/normal_font = SubResource("FontFile_dqkch")
+theme_override_font_sizes/normal_font_size = 17
+text = "Something isn't quite right. I can feel it."
+
+[connection signal="tree_entered" from="Dialog" to="." method="_on_dialog_tree_entered"]

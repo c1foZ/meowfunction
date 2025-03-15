@@ -9,19 +9,9 @@ script = ExtResource("1_36pgd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(114, 41)
-scale = Vector2(1.20255, 1.44633)
+position = Vector2(175.088, 42.144)
+scale = Vector2(1.89673, 1.494)
 texture = ExtResource("2_36pgd")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-modulate = Color(0.440573, 0.204795, 0.0826633, 1)
-texture_filter = 1
-offset_left = 28.0
-offset_top = 26.0
-offset_right = 236.0
-offset_bottom = 61.0
-scale = Vector2(0.979856, 1.28516)
-text = "Hello I'm broken cat"
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(0, 0, 0, 0)

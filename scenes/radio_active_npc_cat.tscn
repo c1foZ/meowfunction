@@ -137,7 +137,7 @@ texture_filter = 1
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_guaha")
 animation = &"idle"
-frame_progress = 0.199955
+frame_progress = 0.278692
 
 [node name="BirdSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_58p8y")

@@ -5,11 +5,16 @@ extends CharacterBody2D
 @onready var audio_meow = $MeowAudio
 
 var last_direction = "right"
+var can_move = true
 
 var next_meow_time = 0
 var meow_timer = 0.0
 
 func _physics_process(delta: float) -> void:
+	if not can_move:
+		velocity = Vector2.ZERO
+		return
+		
 	var direction = Vector2.ZERO
 	meow_timer += delta
 	
@@ -44,3 +49,6 @@ func play_meow():
 		audio_meow.play()
 		meow_timer = 0.0
 		next_meow_time = randi_range(10, 20)
+
+func _on_dialog_tree_entered() -> void:
+	can_move = false
