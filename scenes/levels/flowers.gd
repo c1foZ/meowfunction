@@ -4,7 +4,10 @@ extends Node
 @export var flower_new: TileMapLayer
 @export var flower_button: Button
 
+signal objective_done
+
 func _on_flower_button_pressed() -> void:
+	emit_signal("objective_done")
 	flower_button.disabled = true
 	flower_broken.queue_free()
 	

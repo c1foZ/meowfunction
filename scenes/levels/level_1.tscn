@@ -544,12 +544,16 @@ scale = Vector2(3.72549, 5.50032)
 [node name="RadioActiveNpcCat" parent="." instance=ExtResource("11_excbq")]
 position = Vector2(770, -87)
 
+[connection signal="objective_done" from="Tree" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Tree/TreeTileBroken/Area2D" to="Tree" method="_on_area_2d_body_entered"]
+[connection signal="objective_done" from="Bridge" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Bridge/BridgeTileBroken/Area2DBridge" to="Bridge" method="_on_area_2d_bridge_broken_body_entered"]
 [connection signal="body_entered" from="Bridge/BridgeTileNew/Area2D" to="Bridge" method="_on_area_2d_body_new_bridge_entered"]
 [connection signal="body_entered" from="Bridge/BridgePiece/Area2DBridgePiece" to="Bridge" method="_on_area_2d_body_entered"]
+[connection signal="objective_done" from="Flowers" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Flowers/FlowersBroken/Area2D" to="Flowers" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="Buttons/TreeButton" to="Tree" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="Buttons/BridgeButton" to="Bridge" method="_on_bridge_button_pressed"]
 [connection signal="pressed" from="Buttons/FlowerButton" to="Flowers" method="_on_flower_button_pressed"]
 [connection signal="body_entered" from="EndingArea" to="Player" method="_on_ending_area_body_entered"]
+[connection signal="objective_done" from="RadioActiveNpcCat" to="Player" method="_on_objective_done"]

@@ -5,8 +5,10 @@ extends Node
 @export var bridge_piece: TileMapLayer
 @export var bridge_button: Button
 
+signal objective_done
 
 func _on_bridge_button_pressed() -> void:
+	emit_signal("objective_done")
 	bridge_button.disabled = true
 	bridge_piece.queue_free()
 	bridge_broken.queue_free()

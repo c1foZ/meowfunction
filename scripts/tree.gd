@@ -4,8 +4,10 @@ extends Node
 @export var new_tree: Node
 @export var tree_button: Button
 
+signal objective_done
+
 func _on_tree_button_pressed() -> void:
-	print("Tree button is pressed")
+	emit_signal("objective_done")
 	tree_button.disabled = true
 
 	var tween = get_tree().create_tween()

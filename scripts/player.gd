@@ -4,6 +4,9 @@ extends CharacterBody2D
 @onready var animation_player = $AnimatedSprite2D
 @onready var audio_meow = $MeowAudio
 
+@onready var objectives = $Objectives
+var total_objectives = 0
+
 var last_direction = "right"
 var can_move = true
 
@@ -52,3 +55,8 @@ func play_meow():
 
 func _on_dialog_tree_entered() -> void:
 	can_move = false
+
+func _on_objective_done() -> void:
+	total_objectives += 1
+	var rich_text = objectives.get_node("RichTextLabel")
+	rich_text.text = str(total_objectives) + "/4"

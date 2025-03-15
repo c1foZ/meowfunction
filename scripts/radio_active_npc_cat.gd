@@ -3,6 +3,9 @@ extends CharacterBody2D
 @onready var cat_audio = $BirdSound
 @onready var animation_player = $AnimatedSprite2D
 @onready var meow_sound = $MeowSound
+@onready var button = $Button
+
+signal objective_done
 
 func _process(_delta):
 	animation_player.play("idle")
@@ -22,6 +25,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		
 
 func _on_button_pressed() -> void:
+	emit_signal("objective_done")
+	button.disabled = true
 	cat_audio.stream = meow_sound.stream
 	cat_audio.play()
 	var body = get_tree().get_nodes_in_group("Player")[0]

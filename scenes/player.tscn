@@ -370,6 +370,5 @@ offset_left = -467.0
 offset_top = -289.0
 offset_right = -467.0
 offset_bottom = -289.0
-script = null
 
 [connection signal="tree_entered" from="Dialog" to="." method="_on_dialog_tree_entered"]
