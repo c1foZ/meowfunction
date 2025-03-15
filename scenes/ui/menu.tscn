@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b1f3aj5p41w3j"]
 
-[ext_resource type="Script" uid="uid://dt2wp2tk1rrvn" path="res://scripts/ui.gd" id="1_nt7q6"]
+[ext_resource type="Script" uid="uid://dt2wp2tk1rrvn" path="res://scripts/ui.gd" id="1_7w7rl"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_nt7q6")
+script = ExtResource("1_7w7rl")
 
 [node name="StartGame" type="Button" parent="."]
 texture_filter = 1

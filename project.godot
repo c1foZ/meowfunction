@@ -14,6 +14,10 @@ config/name="puls_game_jam"
 run/main_scene="uid://b1f3aj5p41w3j"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
+[autoload]
+
+MusicManager="*res://scenes/music_manager.tscn"
+
 [display]
 
 window/size/viewport_width=960
