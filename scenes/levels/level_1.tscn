@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://3i8vsm64o75c"]
+[gd_scene load_steps=27 format=4 uid="uid://3i8vsm64o75c"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_6761a"]
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_sk5k4"]
@@ -331,6 +331,12 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_s8va5")
 sources/1 = SubResource("TileSetAtlasSource_dga24")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_iav0o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mm8aj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dnkej"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qxy0u"]
 texture = ExtResource("7_dga24")
 0:0/0 = 0
@@ -381,6 +387,9 @@ texture = ExtResource("7_dga24")
 
 [sub_resource type="TileSet" id="TileSet_excbq"]
 sources/0 = SubResource("TileSetAtlasSource_qxy0u")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_excbq"]
+size = Vector2(70.8333, 39.5)
 
 [node name="Level1" type="Node2D"]
 
@@ -436,6 +445,14 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAhAAYAAAAEAAAAAAAfAAYAAAADAAAAAAAgAAYAAQAHAAYAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
+[node name="Area2DBridge" type="Area2D" parent="Bridge/BridgeTileBroken"]
+position = Vector2(119.333, 26.6667)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgeTileBroken/Area2DBridge"]
+position = Vector2(374.333, 77.3333)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_iav0o")
+
 [node name="BridgeTileNew" type="TileMapLayer" parent="Bridge"]
 visible = false
 texture_filter = 1
@@ -444,11 +461,27 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAfAAYAAAADAAAAAAAgAAYAAAADAAAAAAAhAAYAAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
+[node name="Area2D" type="Area2D" parent="Bridge/BridgeTileNew"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgeTileNew/Area2D"]
+visible = false
+position = Vector2(494, 104)
+scale = Vector2(3, 3)
+shape = SubResource("CircleShape2D_mm8aj")
+
 [node name="BridgePiece" type="TileMapLayer" parent="Bridge"]
 texture_filter = 1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaAA4AAAABAAEAAAA=")
 tile_set = SubResource("TileSet_dga24")
+
+[node name="Area2DBridgePiece" type="Area2D" parent="Bridge/BridgePiece"]
+position = Vector2(423.5, 222.5)
+scale = Vector2(4, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgePiece/Area2DBridgePiece"]
+shape = SubResource("CircleShape2D_dnkej")
 
 [node name="Flowers" type="Node" parent="." node_paths=PackedStringArray("flower_broken", "flower_new", "flower_button")]
 script = ExtResource("7_qxy0u")
@@ -461,6 +494,14 @@ texture_filter = 1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaABIAAAAHAAMAAAAZABIAAAAHAAIAAAAZABMAAAAHAAMAAAAZABUAAAAHAAMAAAAZABcAAAAHAAMAAAAZABgAAAAHAAIAAAAZABYAAAAHAAIAAAAZABQAAAAHAAIAAAAaABMAAAAHAAIAAAAaABUAAAAHAAIAAAAaABcAAAAHAAIAAAAaABgAAAAHAAMAAAAaABYAAAAHAAMAAAAaABQAAAAHAAMAAAAbABIAAAAHAAIAAAAbABMAAAAHAAMAAAAbABQAAAAHAAIAAAAbABUAAAAHAAMAAAAbABYAAAAHAAIAAAAbABcAAAAHAAMAAAAbABgAAAAHAAIAAAAcABIAAAAHAAMAAAAcABMAAAAHAAIAAAAcABQAAAAHAAMAAAAcABUAAAAHAAIAAAAcABYAAAAHAAMAAAAcABcAAAAHAAIAAAAcABgAAAAHAAMAAAAdABIAAAAHAAIAAAAdABMAAAAHAAMAAAAdABQAAAAHAAIAAAAdABUAAAAHAAMAAAAdABYAAAAHAAIAAAAdABcAAAAHAAMAAAAdABgAAAAHAAIAAAAeABIAAAAHAAMAAAAeABMAAAAHAAIAAAAeABQAAAAHAAMAAAAeABUAAAAHAAIAAAAeABYAAAAHAAMAAAAeABcAAAAHAAIAAAAeABgAAAAHAAMAAAAfABIAAAAHAAIAAAAfABMAAAAHAAMAAAAfABQAAAAHAAIAAAAfABUAAAAHAAMAAAAfABYAAAAHAAIAAAAfABcAAAAHAAMAAAAfABgAAAAHAAIAAAAgABIAAAAHAAMAAAAgABMAAAAHAAIAAAAgABQAAAAHAAMAAAAgABUAAAAHAAIAAAAgABYAAAAHAAMAAAAgABcAAAAHAAIAAAAgABgAAAAHAAMAAAAhABIAAAAHAAIAAAAhABMAAAAHAAMAAAAhABQAAAAHAAIAAAAhABUAAAAHAAMAAAAhABYAAAAHAAIAAAAhABcAAAAHAAIAAAAhABgAAAAHAAIAAAAiABIAAAAHAAMAAAAiABMAAAAHAAIAAAAiABQAAAAHAAMAAAAiABUAAAAHAAIAAAAiABYAAAAHAAMAAAAiABcAAAAHAAIAAAAiABgAAAAHAAMAAAAjABIAAAAHAAIAAAAjABMAAAAHAAMAAAAjABQAAAAHAAIAAAAjABUAAAAHAAMAAAAjABYAAAAHAAIAAAAjABcAAAAHAAMAAAAjABgAAAAHAAIAAAAkABIAAAAHAAMAAAAkABMAAAAHAAIAAAAkABQAAAAHAAMAAAAkABUAAAAHAAIAAAAkABYAAAAHAAMAAAAkABcAAAAHAAIAAAAkABgAAAAHAAMAAAAYABgAAAAHAAMAAAAYABcAAAAHAAIAAAAYABYAAAAHAAMAAAAYABUAAAAHAAIAAAAYABMAAAAHAAIAAAAYABQAAAAHAAMAAAAYABIAAAAHAAMAAAA=")
 tile_set = SubResource("TileSet_excbq")
+
+[node name="Area2D" type="Area2D" parent="Flowers/FlowersBroken"]
+position = Vector2(532, 351)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/FlowersBroken/Area2D"]
+position = Vector2(-41.5, -5.5)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_excbq")
 
 [node name="FlowersNew" type="TileMapLayer" parent="Flowers"]
 visible = false
@@ -504,6 +545,10 @@ scale = Vector2(3.72549, 5.50032)
 position = Vector2(770, -87)
 
 [connection signal="body_entered" from="Tree/TreeTileBroken/Area2D" to="Tree" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Bridge/BridgeTileBroken/Area2DBridge" to="Bridge" method="_on_area_2d_bridge_broken_body_entered"]
+[connection signal="body_entered" from="Bridge/BridgeTileNew/Area2D" to="Bridge" method="_on_area_2d_body_new_bridge_entered"]
+[connection signal="body_entered" from="Bridge/BridgePiece/Area2DBridgePiece" to="Bridge" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Flowers/FlowersBroken/Area2D" to="Flowers" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="Buttons/TreeButton" to="Tree" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="Buttons/BridgeButton" to="Bridge" method="_on_bridge_button_pressed"]
 [connection signal="pressed" from="Buttons/FlowerButton" to="Flowers" method="_on_flower_button_pressed"]

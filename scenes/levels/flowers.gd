@@ -16,3 +16,17 @@ func _on_flower_button_pressed() -> void:
 	 # Highlight the button before disabling it
 	flower_button.modulate = Color(1, 1, 0)  # Change to yellow for highlight
 	await get_tree().create_timer(0.2).timeout  # Wait for highlight effect
+	
+	var body = get_tree().get_nodes_in_group("Player")[0]
+	var dialog_node = body.get_node("Dialog")
+	dialog_node.visible = true
+	var rich_text = dialog_node.get_node("RichTextLabel")
+	rich_text.text = "That's better. But why did it bother me?"
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		var dialog_node = body.get_node("Dialog")
+		dialog_node.visible = true
+		var rich_text = dialog_node.get_node("RichTextLabel")
+		rich_text.text = "Something feels... off."

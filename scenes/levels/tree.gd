@@ -22,8 +22,6 @@ func _on_tree_button_pressed() -> void:
 	var dialog_node = body.get_node("Dialog")
 	dialog_node.visible = true
 	var rich_text = dialog_node.get_node("RichTextLabel")
-	var current_size = rich_text.get_theme_font_size("normal_font_size")
-	rich_text.add_theme_font_size_override("normal_font_size", current_size - 2)
 	rich_text.text = "Standing tall again. Was it meant to fall?"
 	
 
