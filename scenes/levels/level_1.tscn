@@ -933,7 +933,6 @@ offset_right = 1083.0
 offset_bottom = 763.0
 
 [node name="Player" parent="." instance=ExtResource("3_oc4kc")]
-visible = false
 z_index = 1
 position = Vector2(82, 332)
 
