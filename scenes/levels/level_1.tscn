@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://3i8vsm64o75c"]
+[gd_scene load_steps=7 format=4 uid="uid://3i8vsm64o75c"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_6761a"]
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://dedep6pt71cnb" path="res://scenes/player.tscn" id="3_oc4kc"]
-[ext_resource type="PackedScene" uid="uid://ri2ynm1x7osx" path="res://scenes/ui/dialog.tscn" id="4_s8va5"]
 [ext_resource type="PackedScene" uid="uid://4nthasu5jv3q" path="res://scenes/ending_area.tscn" id="5_dga24"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
@@ -105,11 +104,6 @@ tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Player" parent="." instance=ExtResource("3_oc4kc")]
 position = Vector2(372, 250)
-rotation = 3.15206
-
-[node name="Dialog" parent="Player" instance=ExtResource("4_s8va5")]
-position = Vector2(172.321, 125.202)
-rotation = 3.13112
 
 [node name="EndingArea" parent="." instance=ExtResource("5_dga24")]
 position = Vector2(1904, 317)

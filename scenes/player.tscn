@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://dedep6pt71cnb"]
+[gd_scene load_steps=43 format=3 uid="uid://dedep6pt71cnb"]
 
 [ext_resource type="Script" uid="uid://dkaybt3k228l5" path="res://scripts/player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://bp4ktnw7v2oed" path="res://assets/pink_spritesheet.png" id="2_g2els"]
 [ext_resource type="AudioStream" uid="uid://cr4o6vhjfocsx" path="res://assets/sounds/broken_meow.wav" id="3_qhqgy"]
+[ext_resource type="PackedScene" uid="uid://ri2ynm1x7osx" path="res://scenes/ui/dialog.tscn" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
 size = Vector2(57, 45)
@@ -348,6 +349,7 @@ shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+rotation = 3.14159
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"idle_right"
@@ -357,3 +359,6 @@ autoplay = "idle_right"
 
 [node name="MeowAudio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_qhqgy")
+
+[node name="Dialog" parent="." instance=ExtResource("4_dqkch")]
+position = Vector2(36, -94)

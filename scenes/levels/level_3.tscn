@@ -1,9 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://dwneuv5wt8ama"]
+[gd_scene load_steps=7 format=4 uid="uid://cwlc2q48oy60l"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_p6vls"]
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_hhfj6"]
 [ext_resource type="PackedScene" uid="uid://dedep6pt71cnb" path="res://scenes/player.tscn" id="3_wae8j"]
-[ext_resource type="PackedScene" uid="uid://ri2ynm1x7osx" path="res://scenes/ui/dialog.tscn" id="4_ha73p"]
 [ext_resource type="PackedScene" uid="uid://4nthasu5jv3q" path="res://scenes/ending_area.tscn" id="5_vcx5n"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jyhfs"]
@@ -91,7 +90,7 @@ texture = ExtResource("2_hhfj6")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_jyhfs")
 
-[node name="Level1" type="Node2D"]
+[node name="Level3" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_p6vls")]
 position = Vector2(962, 230)
@@ -104,15 +103,8 @@ tile_map_data = PackedByteArray("AAACAAIAAAABAAAAAAADAAIAAAABAAAAAAADAAMAAAABAAE
 tile_set = SubResource("TileSet_tbgi4")
 
 [node name="Player" parent="." instance=ExtResource("3_wae8j")]
-position = Vector2(372, 250)
-rotation = 3.15206
-
-[node name="Dialog" parent="Player" instance=ExtResource("4_ha73p")]
-position = Vector2(172.321, 125.202)
-rotation = 3.13112
+position = Vector2(266, 297)
 
 [node name="EndingArea" parent="." instance=ExtResource("5_vcx5n")]
 position = Vector2(1904, 317)
 scale = Vector2(3.72549, 5.50032)
-
-[connection signal="body_entered" from="EndingArea" to="Player" method="_on_ending_area_body_entered"]
