@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ri2ynm1x7osx"]
 
-[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scenes/dialog.gd" id="1_36pgd"]
+[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/dialog.gd" id="1_36pgd"]
 [ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/dialog box big.png" id="2_36pgd"]
 
 [node name="Dialog" type="Node2D"]
