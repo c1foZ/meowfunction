@@ -13,13 +13,21 @@ config_version=5
 config/name="puls_game_jam"
 run/main_scene="uid://7a1emxi4c548"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/icon.svg"
 
 [display]
 
 window/size/viewport_width=960
 window/size/viewport_height=540
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://assets/": "green",
+"res://scenes/": "yellow",
+"res://scripts/": "blue"
+}
 
 [input]
 
