@@ -2,9 +2,11 @@ extends Node
 
 @export var old_tree: Node
 @export var new_tree: Node
+@export var tree_button: Button
 
 func _on_tree_button_pressed() -> void:
 	print("Tree button is pressed")
+	tree_button.disabled = true
 
 	var tween = get_tree().create_tween()
 

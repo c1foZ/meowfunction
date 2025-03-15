@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ri2ynm1x7osx" path="res://scenes/ui/dialog.tscn" id="4_dqkch"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_onrkg"]
-size = Vector2(57, 45)
+size = Vector2(15, 13)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("2_g2els")
@@ -344,13 +344,14 @@ script = ExtResource("1_onrkg")
 speed = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 1.5)
+position = Vector2(-3, -4)
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 rotation = 3.14159
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_smehm")
 animation = &"idle_right"
 autoplay = "idle_right"
