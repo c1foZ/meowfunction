@@ -6,8 +6,8 @@
 [node name="Main" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_0wfyh")]
-position = Vector2(2744, 251)
-scale = Vector2(2.90671, 0.901247)
+position = Vector2(603, 268)
+scale = Vector2(-0.493286, 0.141246)
 
 [node name="Player" parent="." instance=ExtResource("2_sugp2")]
 position = Vector2(467, 277)

@@ -23,3 +23,4 @@ func _physics_process(delta: float) -> void:
 		animation_player.play("walk-right")
 	else:
 		animation_player.play("idle-right")
+		
