@@ -45,4 +45,5 @@ func _on_area_2d_body_new_bridge_entered(body: Node2D) -> void:
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Now it makes sense."
 		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		dialog_node.visible = false
+		bridge_new.get_node("Area2D").queue_free()
