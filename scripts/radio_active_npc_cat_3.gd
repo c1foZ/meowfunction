@@ -24,6 +24,10 @@ func _on_button_pressed() -> void:
 	await get_tree().create_timer(2.0).timeout
 	dialog_node.visible = false
 	await get_tree().create_timer(2.0).timeout
+	
+	var tween = get_tree().create_tween()
+	tween.tween_property(self, "modulate:a", 0, 1.0)  # ✅ Fade out in 1 second
+	await tween.finished
 	queue_free()
 
 
