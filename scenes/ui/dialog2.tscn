@@ -31,8 +31,8 @@ modulate = Color(0.25098, 0.0941176, 0.0392157, 1)
 z_index = 3
 offset_left = 20.0
 offset_top = 32.0
-offset_right = 395.0
-offset_bottom = 71.0
+offset_right = 350.0
+offset_bottom = 69.0
 mouse_filter = 2
 text = "Have I been here before?"
 

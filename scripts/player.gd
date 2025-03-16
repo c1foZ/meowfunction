@@ -77,5 +77,22 @@ func _on_parent_area_body_entered(body: Node2D) -> void:
 		var new_small_cat = get_tree().get_nodes_in_group("NewSmallCat")[0]
 		new_small_cat.visible = true
 		emit_signal("objective_done")
-	else:
-		print("no small cat")
+		var dialog_node = body.get_node("Dialog2")
+		dialog_node.visible = true
+		var rich_text = dialog_node.get_node("RichTextLabel")
+		rich_text.text = "Safe. A family complete. For now."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false
+		var parent_area = get_tree().get_first_node_in_group("ParentArea")
+		parent_area.queue_free()
+	elif body.is_in_group("Player2"):
+		var dialog_node = body.get_node("Dialog2")
+		dialog_node.visible = true
+		var rich_text = dialog_node.get_node("RichTextLabel")
+		rich_text.text = "Their eyes search past me."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false
+		dialog_node.visible = true
+		rich_text.text = "They're waiting for something else."
+		await get_tree().create_timer(3.0).timeout
+		dialog_node.visible = false

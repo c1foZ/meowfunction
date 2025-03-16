@@ -1879,7 +1879,7 @@ sources/0 = SubResource("TileSetAtlasSource_lkn2k")
 size = Vector2(82.5, 61.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sibr7"]
-size = Vector2(118, 54)
+size = Vector2(282, 114)
 
 [node name="Level1" type="Node2D"]
 
@@ -1959,7 +1959,7 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAATAPT/AAABAAIAAAAVAPT/AAABAAIAAAA=")
 tile_set = SubResource("TileSet_sbygb")
 
-[node name="ParentArea" type="Area2D" parent="."]
+[node name="ParentArea" type="Area2D" parent="." groups=["ParentArea"]]
 position = Vector2(1789, 175)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParentArea"]
@@ -1984,7 +1984,7 @@ offset_bottom = -3.0
 scale = Vector2(3.84791, 3.32205)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/Area2D"]
-position = Vector2(240, 29)
+position = Vector2(158, -1)
 shape = SubResource("RectangleShape2D_sibr7")
 
 [node name="Player2" parent="." groups=["Player2"] instance=ExtResource("17_p4se4")]
