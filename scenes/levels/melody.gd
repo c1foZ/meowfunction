@@ -33,6 +33,18 @@ func check_sequence(button_name: String) -> void:
 		if player_sequence[i] != correct_sequence[i]:
 			print("Wrong sequence! Try again.")
 			player_sequence.clear()  # Reset input if incorrect
+			
+			var body = get_tree().get_nodes_in_group("Player2")[0]
+			var dialog_node = body.get_node("Dialog2")
+			dialog_node.visible = true
+			var rich_text = dialog_node.get_node("RichTextLabel")
+			rich_text.text = "The notes scatter, refusing to align"
+			await get_tree().create_timer(2.0).timeout
+			dialog_node.visible = false
+			dialog_node.visible = true
+			rich_text.text = "Try again?"
+			await get_tree().create_timer(2.0).timeout
+			dialog_node.visible = false
 			return
 
 	# ✅ If the sequence is complete and correct

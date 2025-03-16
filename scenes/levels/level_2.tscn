@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://bvl1bju3deaio"]
+[gd_scene load_steps=68 format=4 uid="uid://bvl1bju3deaio"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_p4se4"]
 [ext_resource type="Texture2D" uid="uid://bq6gtxlal87il" path="res://assets/Water.png" id="2_sibr7"]
@@ -2873,6 +2873,8 @@ size = Vector2(82.5, 61.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sibr7"]
 size = Vector2(282, 114)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_xworo"]
+
 [node name="Level1" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_p4se4")]
@@ -3080,10 +3082,11 @@ position = Vector2(1918, 318)
 z_index = 1
 position = Vector2(754, -116)
 
-[node name="SmallCat" parent="." groups=["SmallCat"] instance=ExtResource("22_sbygb")]
+[node name="SmallCat" parent="." node_paths=PackedStringArray("small_cat_button") groups=["SmallCat"] instance=ExtResource("22_sbygb")]
 z_index = 1
 texture_filter = 1
 position = Vector2(519, -537)
+small_cat_button = NodePath("Button")
 
 [node name="Button" type="Button" parent="SmallCat"]
 modulate = Color(1, 1, 1, 0)
@@ -3092,6 +3095,14 @@ offset_top = -9.0
 offset_right = -0.999999
 offset_bottom = -1.0
 scale = Vector2(2.6806, 2.13472)
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="SmallCat"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SmallCat/Area2D"]
+position = Vector2(29, 8)
+scale = Vector2(7.13398, 6.77416)
+shape = SubResource("CircleShape2D_xworo")
 
 [node name="SmallCat2" parent="." groups=["NewSmallCat"] instance=ExtResource("22_sbygb")]
 visible = false
@@ -3120,3 +3131,4 @@ position = Vector2(1798, 168)
 [connection signal="objective_done" from="Player2" to="Player2" method="_on_objective_done"]
 [connection signal="pressed" from="SmallCat/Button" to="Player2" method="_on_button_pressed"]
 [connection signal="pressed" from="SmallCat/Button" to="SmallCat" method="_on_button_pressed"]
+[connection signal="body_entered" from="SmallCat/Area2D" to="SmallCat" method="_on_area_2d_body_entered"]
