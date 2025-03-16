@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1f3aj5p41w3j"]
+[gd_scene load_steps=5 format=3 uid="uid://b1f3aj5p41w3j"]
 
 [ext_resource type="Script" uid="uid://dt2wp2tk1rrvn" path="res://scripts/ui.gd" id="1_7w7rl"]
+[ext_resource type="Texture2D" uid="uid://cq4x122ptd63" path="res://assets/menu_img.png" id="2_wedc3"]
+[ext_resource type="Texture2D" uid="uid://c1p65vlfk0vts" path="res://assets/UI Big Play Button.png" id="3_c2n5p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6y0u"]
+atlas = ExtResource("3_c2n5p")
+region = Rect2(0, 30.8973, 96.5009, 33.1027)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -11,7 +17,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7w7rl")
 
+[node name="MenuImg" type="Sprite2D" parent="."]
+position = Vector2(500, 270)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_wedc3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(481, 271)
+scale = Vector2(1.27077, 1.50014)
+texture = SubResource("AtlasTexture_w6y0u")
+
 [node name="StartGame" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 8
@@ -19,10 +37,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -15.5
-offset_right = 48.0
-offset_bottom = 15.5
+offset_left = -52.0
+offset_top = -15.0
+offset_right = 55.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Start Game"
