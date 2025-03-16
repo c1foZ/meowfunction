@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwor1tecatoym"]
+
+[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/dialog.gd" id="1_2l1dp"]
+[ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/dialog box big.png" id="2_vq4gr"]
+
+[node name="Dialog" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_2l1dp")
+
+[node name="Button" type="Button" parent="."]
+modulate = Color(0, 0, 0, 0)
+self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.532
+anchor_bottom = 0.5
+offset_left = -1334.0
+offset_top = -776.0
+offset_right = 1348.0
+offset_bottom = 907.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 3
+texture_filter = 1
+position = Vector2(175.088, 42.144)
+scale = Vector2(2.05673, 1.494)
+texture = ExtResource("2_vq4gr")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color(0.25098, 0.0941176, 0.0392157, 1)
+z_index = 3
+offset_left = 20.0
+offset_top = 32.0
+offset_right = 395.0
+offset_bottom = 71.0
+mouse_filter = 2
+text = "Have I been here before?"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
