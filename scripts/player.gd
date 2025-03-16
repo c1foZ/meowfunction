@@ -21,18 +21,33 @@ var next_meow_time = 0
 var meow_timer = 0.0
 
 var elapsed_time = 0.0
+var isFading = true
+var dialog_played = false
 
 func _ready() -> void:
 	if current_scene == "Level3":
 		MusicManager.music_player.stop()
 
 func _physics_process(delta: float) -> void:
-	if current_scene == "Level3":
+	if current_scene == "Level3" and isFading == true:
 		elapsed_time += delta
 		if elapsed_time >= 10:
 			elapsed_time = 0  # ✅ Reset timer
 			animation_player.modulate.a = max(animation_player.modulate.a - 0.1, 0)
-		
+			if animation_player.modulate.a < 0.5 and not dialog_played:
+				if has_node("Dialog3"):
+					dialog_played = true
+					var dialog_node = get_node("Dialog3")
+					dialog_node.visible = true
+					var rich_text = dialog_node.get_node("RichTextLabel")
+					rich_text.text = "Am I fading away?"
+					await get_tree().create_timer(3.0).timeout
+					dialog_node.visible = false 
+					dialog_node.visible = true
+					rich_text.text = "Perhaps something can stop this..."
+					await get_tree().create_timer(3.0).timeout
+					dialog_node.visible = false 
+					
 	if not can_move:
 		velocity = Vector2.ZERO
 		return
@@ -119,3 +134,9 @@ func _on_parent_area_body_entered(body: Node2D) -> void:
 func _on_fence_axe_discard() -> void:
 	var axe = get_node("Axe")
 	axe.queue_free()
+
+
+func _on_mushroom_stop_opacity() -> void:
+	isFading = false
+	print("stop fading")
+	animation_player.modulate.a = 1

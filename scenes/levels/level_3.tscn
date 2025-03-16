@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://cg33iy7a8jn4x"]
+[gd_scene load_steps=64 format=4 uid="uid://cg33iy7a8jn4x"]
 
 [ext_resource type="PackedScene" uid="uid://c62jrho5o5ie1" path="res://scenes/ground.tscn" id="1_p6vls"]
 [ext_resource type="Texture2D" uid="uid://c5pxipeitpu6" path="res://assets/Grass.png" id="2_hhfj6"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dnu4jifcm0ulq" path="res://assets/Basic_Grass_Biom_things.png" id="16_vn4iy"]
 [ext_resource type="Script" uid="uid://bt00oxsp326gc" path="res://scenes/levels/fence.gd" id="17_do6pa"]
 [ext_resource type="PackedScene" uid="uid://br4jeoiojukyv" path="res://scenes/axe.tscn" id="18_do6pa"]
+[ext_resource type="Script" uid="uid://d0yv67mlq5y74" path="res://scenes/levels/mushroom.gd" id="19_n8qcm"]
 [ext_resource type="PackedScene" uid="uid://b1bk5187ntr58" path="res://scenes/chest.tscn" id="23_tki50"]
 [ext_resource type="PackedScene" uid="uid://bqjdiw2u0qlfg" path="res://scenes/ending_area3.tscn" id="25_22mqa"]
 [ext_resource type="PackedScene" uid="uid://b7n8afdrjf5ta" path="res://scenes/small_cat.tscn" id="26_1lucq"]
@@ -2857,6 +2858,8 @@ sources/1 = SubResource("TileSetAtlasSource_kva3v")
 atlas = ExtResource("5_6c6bd")
 region = Rect2(113.238, 0.835968, 10.0545, 11.2514)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_do6pa"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lkn2k"]
 texture = ExtResource("8_n7m6w")
 0:0/0 = 0
@@ -3007,12 +3010,28 @@ scale = Vector2(5.0269, 10.5076)
 disabled = true
 
 [node name="Mushroom" type="Node" parent="."]
+script = ExtResource("19_n8qcm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Mushroom"]
 texture_filter = 1
 position = Vector2(1690, -424)
 scale = Vector2(12.8737, 11.6259)
 texture = SubResource("AtlasTexture_kva3v")
+
+[node name="Area2D" type="Area2D" parent="Mushroom"]
+position = Vector2(1694, -402)
+scale = Vector2(16.3683, 14.2844)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mushroom/Area2D"]
+shape = SubResource("CircleShape2D_do6pa")
+
+[node name="Button" type="Button" parent="Mushroom"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1653.0
+offset_top = -457.0
+offset_right = 1661.0
+offset_bottom = -449.0
+scale = Vector2(10.0774, 10.3297)
 
 [node name="WindowTileMapLayer" type="TileMapLayer" parent="."]
 visible = false
@@ -3073,6 +3092,10 @@ position = Vector2(1798, 168)
 [connection signal="body_entered" from="Fence/AxeArea2D" to="Fence" method="_on_axe_area_2d_body_entered"]
 [connection signal="pressed" from="Fence/AxeButton" to="Fence" method="_on_axe_button_pressed"]
 [connection signal="pressed" from="Fence/FenceButton" to="Fence" method="_on_fence_button_pressed"]
+[connection signal="objective_done" from="Mushroom" to="Player3" method="_on_objective_done"]
+[connection signal="stop_opacity" from="Mushroom" to="Player3" method="_on_mushroom_stop_opacity"]
+[connection signal="body_entered" from="Mushroom/Area2D" to="Mushroom" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Mushroom/Button" to="Mushroom" method="_on_button_pressed"]
 [connection signal="objective_done" from="RadioActiveNpcCat3" to="Player3" method="_on_objective_done"]
 [connection signal="pressed" from="RadioActiveNpcCat3/Button" to="RadioActiveNpcCat3" method="_on_button_pressed"]
 [connection signal="body_entered" from="RadioActiveNpcCat3/Area2D" to="RadioActiveNpcCat3" method="_on_area_2d_body_entered"]
