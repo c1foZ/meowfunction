@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://d4avvh8gynpho"]
+
+[ext_resource type="Script" uid="uid://belw87ba3ufhs" path="res://scripts/radio_active_npc_cat_3.gd" id="1_se7ue"]
+[ext_resource type="Texture2D" uid="uid://cmjarw4an80gp" path="res://assets/radioactive_0.png" id="2_se7ue"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ho5ed"]
+size = Vector2(27, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wttil"]
+atlas = ExtResource("2_se7ue")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1i8q"]
+atlas = ExtResource("2_se7ue")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_patvg"]
+atlas = ExtResource("2_se7ue")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6quc3"]
+atlas = ExtResource("2_se7ue")
+region = Rect2(224, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qt1e"]
+atlas = ExtResource("2_se7ue")
+region = Rect2(128, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wju2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wttil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1i8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_patvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6quc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1qt1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6quc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_patvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1i8q")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="RadioActiveNpcCat3" type="CharacterBody2D"]
+script = ExtResource("1_se7ue")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 5)
+shape = SubResource("RectangleShape2D_ho5ed")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_wju2b")
+animation = &"idle"

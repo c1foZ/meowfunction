@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var audio_meow = $MeowAudio
 
 @onready var objectives = $Objectives
+@onready var current_scene = get_tree().current_scene.name
+
+
 var total_objectives = 0
 
 var last_direction = "right"
@@ -17,7 +20,12 @@ signal objective_done
 var next_meow_time = 0
 var meow_timer = 0.0
 
+func _ready() -> void:
+	if current_scene == "Level3":
+		MusicManager.music_player.stop()
+
 func _physics_process(delta: float) -> void:
+
 	if not can_move:
 		velocity = Vector2.ZERO
 		return
@@ -63,7 +71,10 @@ func _on_dialog_tree_entered() -> void:
 func _on_objective_done() -> void:
 	total_objectives += 1
 	var rich_text = objectives.get_node("RichTextLabel")
-	rich_text.text = str(total_objectives) + "/4"
+	if current_scene == "Level3":
+		rich_text.text = str(total_objectives) + "/5"
+	else:
+		rich_text.text = str(total_objectives) + "/4"
 
 func _on_button_pressed() -> void:
 	var small_cat_instance = small_cat_scene.instantiate()  # ✅ Create the instance
