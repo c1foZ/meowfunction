@@ -21,11 +21,11 @@ func _on_button_pressed() -> void:
 	dialog_node.visible = true
 	var rich_text = dialog_node.get_node("RichTextLabel")
 	rich_text.text = "Weird..."
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	dialog_node.visible = false
 	await get_tree().create_timer(2.0).timeout
 	queue_free()
-	
+
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -34,5 +34,5 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Is that... glowing?"
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false

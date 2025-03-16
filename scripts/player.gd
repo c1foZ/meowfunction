@@ -41,23 +41,23 @@ func _physics_process(delta: float) -> void:
 					dialog_node.visible = true
 					var rich_text = dialog_node.get_node("RichTextLabel")
 					rich_text.text = "Am I fading away?"
-					await get_tree().create_timer(3.0).timeout
-					dialog_node.visible = false 
+					await get_tree().create_timer(2.0).timeout
+					dialog_node.visible = false
 					dialog_node.visible = true
 					rich_text.text = "Perhaps something can stop this..."
-					await get_tree().create_timer(3.0).timeout
-					dialog_node.visible = false 
-					
+					await get_tree().create_timer(2.0).timeout
+					dialog_node.visible = false
+
 	if not can_move:
 		velocity = Vector2.ZERO
 		return
-		
+
 	var direction = Vector2.ZERO
 	meow_timer += delta
-	
+
 	if meow_timer >= next_meow_time:
 		play_meow()
-	
+
 	if Input.is_action_pressed("move_up"):
 		direction.y -= 1
 		animation_player.play("walk_up")
@@ -76,11 +76,11 @@ func _physics_process(delta: float) -> void:
 		last_direction = "left"
 	else:
 		animation_player.play("idle_" + last_direction)
-		
+
 	direction = direction.normalized()
 	velocity = direction * speed
 	move_and_slide()
-	
+
 func play_meow():
 	if not audio_meow.playing:
 		audio_meow.play()
@@ -114,7 +114,7 @@ func _on_parent_area_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Safe. A family complete. For now."
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		dialog_node.visible = false
 		var parent_area = get_tree().get_first_node_in_group("ParentArea")
 		parent_area.queue_free()
@@ -123,11 +123,11 @@ func _on_parent_area_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Their eyes search past me."
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		dialog_node.visible = false
 		dialog_node.visible = true
 		rich_text.text = "They're waiting for something else."
-		await get_tree().create_timer(3.0).timeout
+		await get_tree().create_timer(2.0).timeout
 		dialog_node.visible = false
 
 

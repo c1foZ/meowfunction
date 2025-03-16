@@ -19,16 +19,16 @@ func _on_tree_button_pressed() -> void:
 		new_tree.modulate.a = 0  # Start fully transparent
 		new_tree.visible = true
 		tween.tween_property(new_tree, "modulate:a", 1, 0.5)  # Fade in
-	
+
 	var body = get_tree().get_nodes_in_group("Player")[0]
 	var dialog_node = body.get_node("Dialog")
 	dialog_node.visible = true
 	var rich_text = dialog_node.get_node("RichTextLabel")
 	rich_text.text = "Standing tall again. Was it meant to fall?"
-	await get_tree().create_timer(3.0).timeout
+	await get_tree().create_timer(2.0).timeout
 	dialog_node.visible = false
 	old_tree.get_node("Area2D").queue_free()
-	
+
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
@@ -36,8 +36,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "It wasn't always like this."
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false
 
-		
-		
+
+

@@ -27,7 +27,7 @@ func _on_sun_button_pressed() -> void:
 
 func check_sequence(button_name: String) -> void:
 	player_sequence.append(button_name)  # ✅ Add pressed button to sequence
-	
+
 	# ✅ Check if the sequence is correct so far
 	for i in range(player_sequence.size()):
 		if player_sequence[i] != correct_sequence[i]:
@@ -39,19 +39,19 @@ func check_sequence(button_name: String) -> void:
 	if player_sequence == correct_sequence:
 		print("Success! You played the correct order.")
 		player_sequence.clear()  # Reset for next time
-		
+
 		MusicManager.music_player.stream = fixed_melody.stream
 		MusicManager.music_player.play()
-		
+
 		emit_signal("objective_done")
-		
+
 		var body = get_tree().get_nodes_in_group("Player2")[0]
 		var dialog_node = body.get_node("Dialog2")
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "Harmony... but for how long?"
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false
 		star_button.disabled = true
 		if has_node("Area2D"):
 			var area = get_node("Area2D")
@@ -64,13 +64,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialog_node.visible = true
 		var rich_text = dialog_node.get_node("RichTextLabel")
 		rich_text.text = "The sound feels... off."
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false
 		dialog_node.visible = true
 		rich_text.text = "Maybe these notes are meant to be"
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false
 		dialog_node.visible = true
 		rich_text.text = "played in a certain order?"
-		await get_tree().create_timer(3.0).timeout
-		dialog_node.visible = false 
+		await get_tree().create_timer(2.0).timeout
+		dialog_node.visible = false
