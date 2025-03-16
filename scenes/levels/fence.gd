@@ -40,6 +40,8 @@ func _on_axe_button_pressed() -> void:
 	body.add_child(axe_instance)
 	axe_instance.position = Vector2(0, -30)
 	axe.queue_free()
+	if has_node("AxeButton"):
+		get_node("AxeButton").queue_free()
 	if has_node("AxeArea2D"):
 		get_node("AxeArea2D").queue_free()
 	fence_button.disabled = false
@@ -47,6 +49,8 @@ func _on_axe_button_pressed() -> void:
 
 func _on_fence_button_pressed() -> void:
 	closed_fence.queue_free()
+	if has_node("FenceButton"):
+		get_node("FenceButton").queue_free()
 	if has_node("FenceArea2D"):
 		get_node("FenceArea2D").queue_free()
 	emit_signal("axe_discard")

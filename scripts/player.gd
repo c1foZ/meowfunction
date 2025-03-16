@@ -94,7 +94,7 @@ func _on_objective_done() -> void:
 	total_objectives += 1
 	var rich_text = objectives.get_node("RichTextLabel")
 	if current_scene == "Level3":
-		rich_text.text = str(total_objectives) + "/5"
+		rich_text.text = str(total_objectives) + "/3"
 	else:
 		rich_text.text = str(total_objectives) + "/4"
 
