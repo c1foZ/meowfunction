@@ -10,6 +10,8 @@ var total_objectives = 0
 var last_direction = "right"
 var can_move = true
 
+@export var small_cat_scene: PackedScene
+
 var next_meow_time = 0
 var meow_timer = 0.0
 
@@ -60,3 +62,17 @@ func _on_objective_done() -> void:
 	total_objectives += 1
 	var rich_text = objectives.get_node("RichTextLabel")
 	rich_text.text = str(total_objectives) + "/4"
+
+func _on_button_pressed() -> void:
+	var small_cat_instance = small_cat_scene.instantiate()  # ✅ Create the instance
+	add_child(small_cat_instance)  # ✅ Attach it to the current node (e.g., Player)
+	small_cat_instance.position = Vector2(0, -25)
+
+func _on_parent_area_body_entered(body: Node2D) -> void:
+	if has_node("SmallCat"):
+		var small_cat = get_node("SmallCat")
+		small_cat.queue_free() 
+		var new_small_cat = get_tree().get_nodes_in_group("NewSmallCat")[0]
+		new_small_cat.visible = true
+	else: 
+		print("no small cat")

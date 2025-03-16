@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bbjlnd50sr4gq"]
 
-[ext_resource type="Script" uid="uid://dnjlui3nnmkc1" path="res://scenes/radio_active_npc_cat_2.gd" id="1_3xp7j"]
+[ext_resource type="Script" uid="uid://dnjlui3nnmkc1" path="res://scripts/radio_active_npc_cat_2.gd" id="1_3xp7j"]
 [ext_resource type="Texture2D" uid="uid://both2hc252nrh" path="res://assets/black_3.png" id="2_5awxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ho5ed"]
