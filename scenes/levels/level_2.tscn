@@ -2025,7 +2025,9 @@ position = Vector2(1844, 194)
 position = Vector2(1798, 168)
 
 [connection signal="body_entered" from="ParentArea" to="Player2" method="_on_parent_area_body_entered"]
+[connection signal="objective_done" from="Chest" to="Player2" method="_on_objective_done"]
 [connection signal="body_entered" from="Chest/Area2D" to="Chest" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="Chest/Area2D/Button" to="Chest" method="_on_button_pressed"]
+[connection signal="objective_done" from="Player2" to="Player2" method="_on_objective_done"]
 [connection signal="pressed" from="SmallCat/Button" to="Player2" method="_on_button_pressed"]
 [connection signal="pressed" from="SmallCat/Button" to="SmallCat" method="_on_button_pressed"]

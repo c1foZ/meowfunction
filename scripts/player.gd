@@ -10,6 +10,8 @@ var total_objectives = 0
 var last_direction = "right"
 var can_move = true
 
+signal objective_done
+
 @export var small_cat_scene: PackedScene
 
 var next_meow_time = 0
@@ -69,10 +71,11 @@ func _on_button_pressed() -> void:
 	small_cat_instance.position = Vector2(0, -25)
 
 func _on_parent_area_body_entered(body: Node2D) -> void:
-	if has_node("SmallCat"):
+	if body.is_in_group("Player2") and has_node("SmallCat"):
 		var small_cat = get_node("SmallCat")
-		small_cat.queue_free() 
+		small_cat.queue_free()
 		var new_small_cat = get_tree().get_nodes_in_group("NewSmallCat")[0]
 		new_small_cat.visible = true
-	else: 
+		emit_signal("objective_done")
+	else:
 		print("no small cat")

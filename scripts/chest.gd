@@ -6,6 +6,8 @@ extends StaticBody2D
 @export var button: Button
 @onready var area = $Area2D
 
+signal objective_done
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player2"):
 		animated_open.play("open")
@@ -17,3 +19,4 @@ func _on_button_pressed() -> void:
 	animated_open.stop()
 	audio.stop()
 	area.queue_free()
+	emit_signal("objective_done")
