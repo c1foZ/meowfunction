@@ -11,10 +11,20 @@ func _process(_delta):
 
 func _on_button_pressed() -> void:
 	button.disabled = true
-	queue_free()
+	button.queue_free()
 	emit_signal("objective_done")
 	if has_node("Area2D"):
 		get_node("Area2D").queue_free()
+
+	var body = get_tree().get_nodes_in_group("Player3")[0]
+	var dialog_node = body.get_node("Dialog3")
+	dialog_node.visible = true
+	var rich_text = dialog_node.get_node("RichTextLabel")
+	rich_text.text = "Weird..."
+	await get_tree().create_timer(3.0).timeout
+	dialog_node.visible = false
+	queue_free()
+	
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

@@ -20,12 +20,19 @@ signal objective_done
 var next_meow_time = 0
 var meow_timer = 0.0
 
+var elapsed_time = 0.0
+
 func _ready() -> void:
 	if current_scene == "Level3":
 		MusicManager.music_player.stop()
 
 func _physics_process(delta: float) -> void:
-
+	if current_scene == "Level3":
+		elapsed_time += delta
+		if elapsed_time >= 10:
+			elapsed_time = 0  # ✅ Reset timer
+			animation_player.modulate.a = max(animation_player.modulate.a - 0.1, 0)
+		
 	if not can_move:
 		velocity = Vector2.ZERO
 		return
@@ -107,3 +114,8 @@ func _on_parent_area_body_entered(body: Node2D) -> void:
 		rich_text.text = "They're waiting for something else."
 		await get_tree().create_timer(3.0).timeout
 		dialog_node.visible = false
+
+
+func _on_fence_axe_discard() -> void:
+	var axe = get_node("Axe")
+	axe.queue_free()
