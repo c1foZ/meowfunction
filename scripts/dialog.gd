@@ -2,9 +2,12 @@ extends Node2D
 
 @onready var player
 @onready var current_scene = get_tree().current_scene.name
+@export var broken_audio: AudioStreamPlayer2D
 
 func _ready():
 	if current_scene == "Level4":
+		MusicManager.music_player.stream = broken_audio.stream
+		MusicManager.music_player.play()
 		await get_tree().create_timer(10.0).timeout
 		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
 	else:

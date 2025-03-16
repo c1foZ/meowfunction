@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://btlrrjeifpma7"]
+[gd_scene load_steps=4 format=3 uid="uid://btlrrjeifpma7"]
 
 [ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/dialog.gd" id="1_8lhre"]
 [ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/dialog box big.png" id="2_m733h"]
+[ext_resource type="AudioStream" uid="uid://uxpeim34vxjm" path="res://assets/sounds/broken_music.ogg" id="3_m733h"]
 
-[node name="Dialog" type="Node2D"]
+[node name="Dialog" type="Node2D" node_paths=PackedStringArray("broken_audio")]
 texture_filter = 1
 script = ExtResource("1_8lhre")
+broken_audio = NodePath("AudioStreamPlayer2D")
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(0, 0, 0, 0)
@@ -36,5 +38,8 @@ offset_bottom = 81.0
 scale = Vector2(0.990798, 1.0303)
 mouse_filter = 2
 text = "Did you think you could fix what is already broken?"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_m733h")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
