@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://8e8hjas0btwr"]
 
-[ext_resource type="Texture2D" uid="uid://bgkttsxebank0" path="res://assets/Sprite sheet for Basic Pack.png" id="1_esfv6"]
-[ext_resource type="FontFile" uid="uid://byo76hdbsod88" path="res://assets/mago3.ttf" id="1_wvotn"]
+[ext_resource type="Texture2D" uid="uid://bgkttsxebank0" path="res://assets/interface/Sprite sheet for Basic Pack.png" id="1_esfv6"]
+[ext_resource type="FontFile" uid="uid://byo76hdbsod88" path="res://assets/fonts/mago3.ttf" id="1_wvotn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wvotn"]
 atlas = ExtResource("1_esfv6")

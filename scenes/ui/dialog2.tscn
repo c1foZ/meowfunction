@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cwor1tecatoym"]
 
-[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/dialog.gd" id="1_2l1dp"]
-[ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/dialog box big.png" id="2_vq4gr"]
+[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/ui/dialog.gd" id="1_2l1dp"]
+[ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/interface/dialog box big.png" id="2_vq4gr"]
 
 [node name="Dialog" type="Node2D"]
 texture_filter = 1

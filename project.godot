@@ -16,7 +16,8 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
 
-MusicManager="*res://scenes/music_manager.tscn"
+MusicManager="*res://scenes/managers/music_manager.tscn"
+GameManager="*res://scenes/managers/game_manager.tscn"
 
 [display]
 

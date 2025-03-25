@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://btlrrjeifpma7"]
 
-[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/dialog.gd" id="1_8lhre"]
-[ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/dialog box big.png" id="2_m733h"]
+[ext_resource type="Script" uid="uid://oxghvl5j0rrh" path="res://scripts/ui/dialog.gd" id="1_8lhre"]
+[ext_resource type="Texture2D" uid="uid://c2fts5espl6jr" path="res://assets/interface/dialog box big.png" id="2_m733h"]
 [ext_resource type="AudioStream" uid="uid://uxpeim34vxjm" path="res://assets/sounds/broken_music.ogg" id="3_m733h"]
 
 [node name="Dialog" type="Node2D" node_paths=PackedStringArray("broken_audio")]

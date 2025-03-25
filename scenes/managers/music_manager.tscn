@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csnymqcw5bpwf"]
+
+[ext_resource type="Script" uid="uid://dgbnd4ykm3klv" path="res://scripts/managers/music_manager.gd" id="1_lahvb"]
+[ext_resource type="AudioStream" uid="uid://uxpeim34vxjm" path="res://assets/sounds/broken_music.ogg" id="2_64p8j"]
+
+[node name="MusicManager" type="Node"]
+script = ExtResource("1_lahvb")
+
+[node name="BrokenMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_64p8j")
