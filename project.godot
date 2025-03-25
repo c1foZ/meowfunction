@@ -18,6 +18,7 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 MusicManager="*res://scenes/managers/music_manager.tscn"
 GameManager="*res://scenes/managers/game_manager.tscn"
+DialogManager="*res://scenes/managers/dialog_manager.tscn"
 
 [display]
 

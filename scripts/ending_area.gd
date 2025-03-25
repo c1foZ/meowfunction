@@ -9,13 +9,8 @@ func _on_body_entered(body: Node2D) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(player, "modulate:a", 0, 1.5)
 		await tween.finished
-		
-		var current_scene_file = get_tree().current_scene.scene_file_path
-		var next_level_number = current_scene_file.to_int() + 1
 
-		var next_level_path = FILE_BEGIN + str(next_level_number) + ".tscn"
-
-		call_deferred("change_scene", next_level_path)
+		GameManager.next_level()
 	else:
 		var dialog_node = body.get_node("Dialog")
 		dialog_node.visible = true
@@ -25,6 +20,3 @@ func _on_body_entered(body: Node2D) -> void:
 		rich_text.text = "I can't go there yet. There's still something left behind."
 		await get_tree().create_timer(2.0).timeout
 		dialog_node.visible = false
-
-func change_scene(next_level_path: String) -> void:
-	get_tree().change_scene_to_file(next_level_path)

@@ -2875,7 +2875,7 @@ size = Vector2(282, 114)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xworo"]
 
-[node name="Level1" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="Ground" parent="." instance=ExtResource("1_p4se4")]
 position = Vector2(962, 230)

@@ -2719,27 +2719,29 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAXABcAAAAAAAAAAAAXABgAAAAAAAEAAAAXABUAAAAAAAAAAAAXABYAAAAAAAEAAAAXABMAAAAAAAAAAAAXABQAAAAAAAEAAAAXABEAAAABAAAAAAAXABIAAAAAAAEAAAAYABkAAAACAAMAAAAZABkAAAACAAMAAAAaABkAAAACAAMAAAAbABkAAAACAAMAAAAcABkAAAACAAMAAAAdABkAAAACAAMAAAAeABkAAAACAAMAAAAfABkAAAACAAMAAAAgABkAAAACAAMAAAAhABkAAAACAAMAAAAiABkAAAACAAMAAAAjABkAAAACAAMAAAAkABkAAAACAAMAAAAlABkAAAADAAIAAAAXABkAAAABAAIAAAAlABgAAAAAAAEAAAAlABcAAAAAAAAAAAAlABUAAAAAAAAAAAAlABYAAAAAAAEAAAAlABMAAAAAAAAAAAAlABQAAAAAAAEAAAAlABEAAAADAAAAAAAlABIAAAAAAAEAAAAkABEAAAACAAMAAAAjABEAAAACAAMAAAAiABEAAAACAAMAAAAhABEAAAACAAMAAAAcABEAAAACAAMAAAAbABEAAAACAAMAAAAaABEAAAACAAMAAAAZABEAAAACAAMAAAAYABEAAAACAAMAAAAdABEAAAADAAMAAAAgABEAAAABAAMAAAAZAPb/AAACAAIAAAAaAPb/AAADAAIAAAAYAPb/AAACAAIAAAAWAPb/AAACAAIAAAAXAPb/AAACAAIAAAAUAPb/AAACAAIAAAAVAPb/AAACAAIAAAATAPb/AAACAAIAAAASAPb/AAACAAMAAAARAPb/AAACAAMAAAAQAPb/AAACAAMAAAAPAPb/AAABAAIAAAAPAPX/AAAAAAEAAAAPAPT/AAAAAAEAAAAPAPP/AAAAAAEAAAAPAPL/AAAAAAEAAAAPAPH/AAAAAAEAAAAPAPD/AAAAAAEAAAAPAO//AAAAAAEAAAAPAO7/AAABAAAAAAAQAO7/AAACAAMAAAARAO7/AAACAAMAAAASAO7/AAACAAMAAAATAO7/AAACAAMAAAAUAO7/AAACAAMAAAAVAO7/AAACAAMAAAAWAO7/AAACAAMAAAAXAO7/AAACAAMAAAAYAO7/AAACAAMAAAAZAO7/AAACAAMAAAAaAO7/AAACAAMAAAAbAO7/AAACAAMAAAAcAO7/AAACAAMAAAAdAO7/AAADAAAAAAAdAO//AAAAAAEAAAAdAPD/AAAAAAEAAAAdAPH/AAAAAAEAAAAdAPL/AAAAAAEAAAAdAPP/AAAAAAEAAAAdAPT/AAAAAAEAAAAdAPX/AAAAAAEAAAAdAPb/AAAAAAIAAAARAPT/AgAAAAIAAAASAPT/AgABAAIAAAATAPT/AgADAAIAAAAUAPT/AgABAAIAAAAVAPT/AgADAAIAAAAWAPT/AgABAAIAAAAXAPT/AgACAAIAAAAXAPP/AQAGAAQAAAAXAPL/AQAGAAMAAAAWAPH/AQAFAAIAAAAVAPH/AQAEAAIAAAAUAPH/AQAGAAIAAAATAPH/AQAFAAIAAAASAPH/AQAEAAIAAAAXAPH/AQAGAAIAAAARAPH/AQADAAIAAAARAPL/AQADAAMAAAARAPP/AQADAAQAAAAUAPL/AQAGAAMAAAAUAPP/AQAGAAQAAAAVAPL/AQAEAAMAAAAVAPP/AQAEAAQAAAAWAPL/AQAFAAMAAAAWAPP/AQAFAAQAAAASAPL/AQAEAAMAAAASAPP/AQAEAAQAAAATAPL/AQAFAAMAAAATAPP/AQAFAAQAAAACAAkABAABAAMAAAADAAkABAACAAMAAAAEAAkABAACAAMAAAAFAAkABAACAAMAAAAGAAkABAACAAMAAAAHAAkABAACAAMAAAAIAAkABAACAAMAAAAJAAkABAACAAMAAAAKAAkABAACAAMAAAALAAkABAACAAMAAAAMAAkABAACAAIAAAAMAAgABAAAAAEAAAAMAAcABAABAAEAAAANAAcABAACAAMAAAAOAAcABAACAAMAAAAPAAcABAACAAMAAAAQAAcABAACAAMAAAARAAcABAACAAMAAAASAAcABAACAAMAAAATAAcABAACAAMAAAAUAAcABAACAAEAAAAWAAoABAACAAMAAAAXAAoABAACAAMAAAAYAAoABAACAAMAAAAZAAoABAACAAMAAAAaAAoABAACAAMAAAAbAAoABAACAAMAAAAcAAoABAACAAMAAAAdAAoABAACAAMAAAAeAAoABAACAAMAAAAfAAoABAACAAMAAAAgAAoABAACAAMAAAAhAAoABAACAAMAAAAiAAoABAACAAMAAAAjAAoABAACAAMAAAAkAAoABAACAAMAAAAlAAoABAACAAMAAAAmAAoABAACAAMAAAAnAAoABAACAAMAAAAoAAoABAACAAMAAAApAAoABAACAAMAAAAUAAgABAAAAAEAAAAUAAoABAABAAIAAAAUAAkABAAAAAEAAAAVAAoABAACAAMAAAAUAPX/AwABAAEAAAA7AAsABQAbAAYAAAA6AAoABQAbAAQAAAA8AAsABQAbAAYAAAA6AAkABQAbAAQAAAA7AAgABQAbAAcAAAA8AAgABQAbAAcAAAA9AAkABQAbAAUAAAA9AAoABQAbAAUAAAA=")
 tile_set = SubResource("TileSet_o7j4k")
 
-[node name="Tree" type="Node" parent="." node_paths=PackedStringArray("old_tree", "new_tree", "tree_button")]
+[node name="Objectives" type="Node" parent="."]
+
+[node name="Tree" type="Node" parent="Objectives" node_paths=PackedStringArray("old_tree", "new_tree", "tree_button")]
 script = ExtResource("3_sk5k4")
 old_tree = NodePath("TreeTileBroken")
 new_tree = NodePath("TreeTileNew")
 tree_button = NodePath("../Buttons/TreeButton")
 
-[node name="TreeTileBroken" type="TileMapLayer" parent="Tree"]
+[node name="TreeTileBroken" type="TileMapLayer" parent="Objectives/Tree"]
 texture_filter = 1
 position = Vector2(1, 0)
 scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAQAAMAAAACAAQAAAARAAMAAAADAAQAAAASAAMAAAAEAAQAAAA=")
 tile_set = SubResource("TileSet_sk5k4")
 
-[node name="Area2D" type="Area2D" parent="Tree/TreeTileBroken"]
+[node name="Area2D" type="Area2D" parent="Objectives/Tree/TreeTileBroken"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Tree/TreeTileBroken/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectives/Tree/TreeTileBroken/Area2D"]
 position = Vector2(274.5, 55.25)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_excbq")
 
-[node name="TreeTileNew" type="TileMapLayer" parent="Tree"]
+[node name="TreeTileNew" type="TileMapLayer" parent="Objectives/Tree"]
 visible = false
 texture_filter = 1
 position = Vector2(1, 0)
@@ -2747,29 +2749,29 @@ scale = Vector2(4, 4)
 tile_map_data = PackedByteArray("AAAQAAMAAQAFAAUAAAARAAMAAAAAAAEAAAASAAMAAQAFAAUAAAARAAIAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_sk5k4")
 
-[node name="Bridge" type="Node" parent="." node_paths=PackedStringArray("bridge_broken", "bridge_new", "bridge_piece", "bridge_button")]
+[node name="Bridge" type="Node" parent="Objectives" node_paths=PackedStringArray("bridge_broken", "bridge_new", "bridge_piece", "bridge_button")]
 script = ExtResource("5_s8va5")
 bridge_broken = NodePath("BridgeTileBroken")
 bridge_new = NodePath("BridgeTileNew")
 bridge_piece = NodePath("BridgePiece")
 bridge_button = NodePath("../Buttons/BridgeButton")
 
-[node name="BridgeTileBroken" type="TileMapLayer" parent="Bridge"]
+[node name="BridgeTileBroken" type="TileMapLayer" parent="Objectives/Bridge"]
 texture_filter = 1
 position = Vector2(-15, 10)
 scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAhAAYAAAAEAAAAAAAfAAYAAAADAAAAAAAgAAYAAQAHAAYAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
-[node name="Area2DBridge" type="Area2D" parent="Bridge/BridgeTileBroken"]
+[node name="Area2DBridge" type="Area2D" parent="Objectives/Bridge/BridgeTileBroken"]
 position = Vector2(119.333, 26.6667)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgeTileBroken/Area2DBridge"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectives/Bridge/BridgeTileBroken/Area2DBridge"]
 position = Vector2(374.333, 77.3333)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_iav0o")
 
-[node name="BridgeTileNew" type="TileMapLayer" parent="Bridge"]
+[node name="BridgeTileNew" type="TileMapLayer" parent="Objectives/Bridge"]
 visible = false
 texture_filter = 1
 position = Vector2(-15, 10)
@@ -2777,73 +2779,73 @@ scale = Vector2(3, 3)
 tile_map_data = PackedByteArray("AAAeAAYAAAACAAAAAAAfAAYAAAADAAAAAAAgAAYAAAADAAAAAAAhAAYAAAAEAAAAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
-[node name="Area2D" type="Area2D" parent="Bridge/BridgeTileNew"]
+[node name="Area2D" type="Area2D" parent="Objectives/Bridge/BridgeTileNew"]
 visible = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgeTileNew/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectives/Bridge/BridgeTileNew/Area2D"]
 visible = false
 position = Vector2(494, 104)
 scale = Vector2(3, 3)
 shape = SubResource("CircleShape2D_mm8aj")
 
-[node name="BridgePiece" type="TileMapLayer" parent="Bridge"]
+[node name="BridgePiece" type="TileMapLayer" parent="Objectives/Bridge"]
 texture_filter = 1
 position = Vector2(121, -1065)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaAA4AAAABAAEAAAA=")
 tile_set = SubResource("TileSet_dga24")
 
-[node name="Area2DBridgePiece" type="Area2D" parent="Bridge/BridgePiece"]
+[node name="Area2DBridgePiece" type="Area2D" parent="Objectives/Bridge/BridgePiece"]
 position = Vector2(423.5, 222.5)
 scale = Vector2(7, 7)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bridge/BridgePiece/Area2DBridgePiece"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectives/Bridge/BridgePiece/Area2DBridgePiece"]
 shape = SubResource("CircleShape2D_dnkej")
 
-[node name="Flowers" type="Node" parent="." node_paths=PackedStringArray("flower_broken", "flower_new", "flower_button")]
+[node name="Flowers" type="Node" parent="Objectives" node_paths=PackedStringArray("flower_broken", "flower_new", "flower_button")]
 script = ExtResource("7_qxy0u")
 flower_broken = NodePath("FlowersBroken")
 flower_new = NodePath("FlowersNew")
 flower_button = NodePath("../Buttons/FlowerButton")
 
-[node name="FlowersBroken" type="TileMapLayer" parent="Flowers"]
+[node name="FlowersBroken" type="TileMapLayer" parent="Objectives/Flowers"]
 texture_filter = 1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaABIAAAAHAAMAAAAZABIAAAAHAAIAAAAZABMAAAAHAAMAAAAZABUAAAAHAAMAAAAZABcAAAAHAAMAAAAZABgAAAAHAAIAAAAZABYAAAAHAAIAAAAZABQAAAAHAAIAAAAaABMAAAAHAAIAAAAaABUAAAAHAAIAAAAaABcAAAAHAAIAAAAaABgAAAAHAAMAAAAaABYAAAAHAAMAAAAaABQAAAAHAAMAAAAbABIAAAAHAAIAAAAbABMAAAAHAAMAAAAbABQAAAAHAAIAAAAbABUAAAAHAAMAAAAbABYAAAAHAAIAAAAbABcAAAAHAAMAAAAbABgAAAAHAAIAAAAcABIAAAAHAAMAAAAcABMAAAAHAAIAAAAcABQAAAAHAAMAAAAcABUAAAAHAAIAAAAcABYAAAAHAAMAAAAcABcAAAAHAAIAAAAcABgAAAAHAAMAAAAdABIAAAAHAAIAAAAdABMAAAAHAAMAAAAdABQAAAAHAAIAAAAdABUAAAAHAAMAAAAdABYAAAAHAAIAAAAdABcAAAAHAAMAAAAdABgAAAAHAAIAAAAeABIAAAAHAAMAAAAeABMAAAAHAAIAAAAeABQAAAAHAAMAAAAeABUAAAAHAAIAAAAeABYAAAAHAAMAAAAeABcAAAAHAAIAAAAeABgAAAAHAAMAAAAfABIAAAAHAAIAAAAfABMAAAAHAAMAAAAfABQAAAAHAAIAAAAfABUAAAAHAAMAAAAfABYAAAAHAAIAAAAfABcAAAAHAAMAAAAfABgAAAAHAAIAAAAgABIAAAAHAAMAAAAgABMAAAAHAAIAAAAgABQAAAAHAAMAAAAgABUAAAAHAAIAAAAgABYAAAAHAAMAAAAgABcAAAAHAAIAAAAgABgAAAAHAAMAAAAhABIAAAAHAAIAAAAhABMAAAAHAAMAAAAhABQAAAAHAAIAAAAhABUAAAAHAAMAAAAhABYAAAAHAAIAAAAhABcAAAAHAAIAAAAhABgAAAAHAAIAAAAiABIAAAAHAAMAAAAiABMAAAAHAAIAAAAiABQAAAAHAAMAAAAiABUAAAAHAAIAAAAiABYAAAAHAAMAAAAiABcAAAAHAAIAAAAiABgAAAAHAAMAAAAjABIAAAAHAAIAAAAjABMAAAAHAAMAAAAjABQAAAAHAAIAAAAjABUAAAAHAAMAAAAjABYAAAAHAAIAAAAjABcAAAAHAAMAAAAjABgAAAAHAAIAAAAkABIAAAAHAAMAAAAkABMAAAAHAAIAAAAkABQAAAAHAAMAAAAkABUAAAAHAAIAAAAkABYAAAAHAAMAAAAkABcAAAAHAAIAAAAkABgAAAAHAAMAAAAYABgAAAAHAAMAAAAYABcAAAAHAAIAAAAYABYAAAAHAAMAAAAYABUAAAAHAAIAAAAYABMAAAAHAAIAAAAYABQAAAAHAAMAAAAYABIAAAAHAAMAAAA=")
 tile_set = SubResource("TileSet_excbq")
 
-[node name="Area2D" type="Area2D" parent="Flowers/FlowersBroken"]
+[node name="Area2D" type="Area2D" parent="Objectives/Flowers/FlowersBroken"]
 position = Vector2(532, 351)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flowers/FlowersBroken/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Objectives/Flowers/FlowersBroken/Area2D"]
 position = Vector2(-41.5, -5.5)
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_excbq")
 
-[node name="FlowersNew" type="TileMapLayer" parent="Flowers"]
+[node name="FlowersNew" type="TileMapLayer" parent="Objectives/Flowers"]
 visible = false
 texture_filter = 1
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAaABIAAAAHAAMAAAAZABIAAAAHAAIAAAAZABMAAAAHAAMAAAAZABUAAAAHAAMAAAAZABcAAAAHAAMAAAAZABgAAAAHAAIAAAAZABYAAAAHAAIAAAAZABQAAAAHAAIAAAAaABMAAAAHAAIAAAAaABUAAAAHAAIAAAAaABcAAAAHAAIAAAAaABgAAAAHAAMAAAAaABYAAAAHAAMAAAAaABQAAAAHAAMAAAAbABIAAAAHAAIAAAAbABMAAAAHAAMAAAAbABQAAAAHAAIAAAAbABUAAAAHAAMAAAAbABYAAAAHAAIAAAAbABcAAAAHAAMAAAAbABgAAAAHAAIAAAAcABIAAAAHAAMAAAAcABMAAAAHAAIAAAAcABQAAAAHAAMAAAAcABUAAAAHAAIAAAAcABYAAAAHAAMAAAAcABcAAAAHAAIAAAAcABgAAAAHAAMAAAAdABIAAAAHAAIAAAAdABMAAAAHAAMAAAAdABQAAAAHAAIAAAAdABUAAAAHAAMAAAAdABYAAAAHAAIAAAAdABcAAAAHAAMAAAAdABgAAAAHAAIAAAAeABIAAAAHAAMAAAAeABMAAAAHAAIAAAAeABQAAAAHAAMAAAAeABUAAAAHAAIAAAAeABYAAAAHAAMAAAAeABcAAAAHAAIAAAAeABgAAAAHAAMAAAAfABIAAAAHAAIAAAAfABMAAAAHAAMAAAAfABQAAAAHAAIAAAAfABUAAAAHAAMAAAAfABYAAAAHAAIAAAAfABcAAAAHAAMAAAAfABgAAAAHAAIAAAAgABIAAAAHAAMAAAAgABMAAAAHAAIAAAAgABQAAAAHAAMAAAAgABUAAAAHAAIAAAAgABYAAAAHAAMAAAAgABcAAAAHAAIAAAAgABgAAAAHAAMAAAAhABIAAAAHAAIAAAAhABMAAAAHAAMAAAAhABQAAAAHAAIAAAAhABUAAAAHAAMAAAAhABYAAAAHAAIAAAAhABcAAAAHAAMAAAAhABgAAAAHAAIAAAAiABIAAAAHAAMAAAAiABMAAAAHAAIAAAAiABQAAAAHAAMAAAAiABUAAAAHAAIAAAAiABYAAAAHAAMAAAAiABcAAAAHAAIAAAAiABgAAAAHAAMAAAAjABIAAAAHAAIAAAAjABMAAAAHAAMAAAAjABQAAAAHAAIAAAAjABUAAAAHAAMAAAAjABYAAAAHAAIAAAAjABcAAAAHAAMAAAAjABgAAAAHAAIAAAAkABIAAAAHAAMAAAAkABMAAAAHAAIAAAAkABQAAAAHAAMAAAAkABUAAAAHAAIAAAAkABYAAAAHAAMAAAAkABcAAAAHAAIAAAAkABgAAAAHAAMAAAAYABgAAAAHAAMAAAAYABcAAAAHAAIAAAAYABYAAAAHAAMAAAAYABUAAAAHAAIAAAAYABMAAAAHAAIAAAAYABQAAAAHAAMAAAAYABIAAAAHAAMAAAA=")
 tile_set = SubResource("TileSet_excbq")
 
-[node name="Buttons" type="Node" parent="."]
+[node name="Buttons" type="Node" parent="Objectives"]
 
-[node name="TreeButton" type="Button" parent="Buttons"]
+[node name="TreeButton" type="Button" parent="Objectives/Buttons"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1046.0
 offset_top = 197.0
 offset_right = 1139.0
 offset_bottom = 250.0
 
-[node name="BridgeButton" type="Button" parent="Buttons"]
+[node name="BridgeButton" type="Button" parent="Objectives/Buttons"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 955.0
 offset_top = -617.0
 offset_right = 983.0
 offset_bottom = -586.0
 
-[node name="FlowerButton" type="Button" parent="Buttons"]
+[node name="FlowerButton" type="Button" parent="Objectives/Buttons"]
 modulate = Color(1, 1, 1, 0)
 offset_left = 1059.0
 offset_top = 742.0
@@ -2868,9 +2870,9 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAA7AAkAAAAcAAgAAAA7AAoAAAAcAAkAAAA8AAkAAAAdAAgAAAA8AAoAAAAdAAkAAAA=")
 tile_set = SubResource("TileSet_x7jkp")
 
-[node name="Area2D" type="Area2D" parent="EndingButton"]
+[node name="EndingArea2D" type="Area2D" parent="EndingButton"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndingButton/Area2D"]
+[node name="EndingCollisionShape2D" type="CollisionShape2D" parent="EndingButton/EndingArea2D"]
 position = Vector2(1920, 318)
 scale = Vector2(0.131505, 0.149767)
 shape = SubResource("CircleShape2D_gmpev")
@@ -2887,17 +2889,17 @@ scale = Vector2(3.72549, 5.50032)
 z_index = 1
 position = Vector2(770, -87)
 
-[connection signal="objective_done" from="Tree" to="Player" method="_on_objective_done"]
-[connection signal="body_entered" from="Tree/TreeTileBroken/Area2D" to="Tree" method="_on_area_2d_body_entered"]
-[connection signal="objective_done" from="Bridge" to="Player" method="_on_objective_done"]
-[connection signal="body_entered" from="Bridge/BridgeTileBroken/Area2DBridge" to="Bridge" method="_on_area_2d_bridge_broken_body_entered"]
-[connection signal="body_entered" from="Bridge/BridgeTileNew/Area2D" to="Bridge" method="_on_area_2d_body_new_bridge_entered"]
-[connection signal="body_entered" from="Bridge/BridgePiece/Area2DBridgePiece" to="Bridge" method="_on_area_2d_body_entered"]
-[connection signal="objective_done" from="Flowers" to="Player" method="_on_objective_done"]
-[connection signal="body_entered" from="Flowers/FlowersBroken/Area2D" to="Flowers" method="_on_area_2d_body_entered"]
-[connection signal="pressed" from="Buttons/TreeButton" to="Tree" method="_on_tree_button_pressed"]
-[connection signal="pressed" from="Buttons/BridgeButton" to="Bridge" method="_on_bridge_button_pressed"]
-[connection signal="pressed" from="Buttons/FlowerButton" to="Flowers" method="_on_flower_button_pressed"]
-[connection signal="body_entered" from="EndingButton/Area2D" to="EndingButton" method="_on_area_2d_body_entered"]
+[connection signal="objective_done" from="Objectives/Tree" to="Player" method="_on_objective_done"]
+[connection signal="body_entered" from="Objectives/Tree/TreeTileBroken/Area2D" to="Objectives/Tree" method="_on_area_2d_body_entered"]
+[connection signal="objective_done" from="Objectives/Bridge" to="Player" method="_on_objective_done"]
+[connection signal="body_entered" from="Objectives/Bridge/BridgeTileBroken/Area2DBridge" to="Objectives/Bridge" method="_on_area_2d_bridge_broken_body_entered"]
+[connection signal="body_entered" from="Objectives/Bridge/BridgeTileNew/Area2D" to="Objectives/Bridge" method="_on_area_2d_body_new_bridge_entered"]
+[connection signal="body_entered" from="Objectives/Bridge/BridgePiece/Area2DBridgePiece" to="Objectives/Bridge" method="_on_area_2d_body_entered"]
+[connection signal="objective_done" from="Objectives/Flowers" to="Player" method="_on_objective_done"]
+[connection signal="body_entered" from="Objectives/Flowers/FlowersBroken/Area2D" to="Objectives/Flowers" method="_on_area_2d_body_entered"]
+[connection signal="pressed" from="Objectives/Buttons/TreeButton" to="Objectives/Tree" method="_on_tree_button_pressed"]
+[connection signal="pressed" from="Objectives/Buttons/BridgeButton" to="Objectives/Bridge" method="_on_bridge_button_pressed"]
+[connection signal="pressed" from="Objectives/Buttons/FlowerButton" to="Objectives/Flowers" method="_on_flower_button_pressed"]
+[connection signal="body_entered" from="EndingButton/EndingArea2D" to="EndingButton" method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="EndingArea" to="Player" method="_on_ending_area_body_entered"]
 [connection signal="objective_done" from="RadioActiveNpcCat" to="Player" method="_on_objective_done"]
