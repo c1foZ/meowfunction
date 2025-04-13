@@ -4,6 +4,9 @@ extends Node2D
 @onready var current_scene = get_tree().current_scene.name
 @export var broken_audio: AudioStreamPlayer2D
 
+var dialog_visible := false
+var player_ref: Node2D
+
 func _ready():
 	if current_scene == "Level4":
 		MusicManager.music_player.stream = broken_audio.stream
@@ -17,12 +20,19 @@ func _ready():
 		await get_tree().create_timer(10.0).timeout
 		get_tree().change_scene_to_file("res://scenes/levels/level_1.tscn")
 	else:
-		await get_tree().create_timer(2.0).timeout
 		player = get_tree().get_nodes_in_group("Player")[0]
-		player.can_move = true
-		visible = false
+		player_ref = player
+		set_process_input(true) 
 
+func _input(event):
+	if visible and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var dialog_node = player_ref.get_node("Dialog")
+		dialog_node.visible = false
+		player_ref.can_move = true
+		dialog_visible = false
+		set_process_input(false)
+		
 #func _on_button_pressed() -> void:
-	#player = get_tree().get_nodes_in_group("Player")[0]
+	#player = get_tree().get_nodes_in_group("Player")[0]s
 	##player.can_move = true
 	#visible = false

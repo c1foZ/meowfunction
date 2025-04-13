@@ -7,32 +7,49 @@ extends CharacterBody2D
 
 signal objective_done
 
+var player_ref: Node2D
+var in_area := false
+var button_is_pressed := false
+
 func _process(_delta):
 	animation_player.play("idle")
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		in_area = true
 		cat_audio.play()
 		var dialog_node = body.get_node("Dialog")
 		dialog_node.visible = true
+		player_ref = body
+		player_ref.can_move = false
 		var rich_text = dialog_node.get_node("RichTextLabel")
-		if cat_audio.stream == meow_sound.stream:
-			rich_text.text = "That's... better?"
-		else:
-			rich_text.text = "Wait... did that cat just chirp?"
-		await get_tree().create_timer(2.0).timeout
-		dialog_node.visible = false
+		rich_text.text = "Wait... did that cat just chirp?"
+		set_process_input(true)
 
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		in_area = false
 
 func _on_button_pressed() -> void:
-	emit_signal("objective_done")
-	button.disabled = true
-	cat_audio.stream = meow_sound.stream
-	cat_audio.play()
-	var body = get_tree().get_nodes_in_group("Player")[0]
-	var dialog_node = body.get_node("Dialog")
-	dialog_node.visible = true
-	var rich_text = dialog_node.get_node("RichTextLabel")
-	rich_text.text = "That's... better?"
-	await get_tree().create_timer(2.0).timeout
-	dialog_node.visible = false
+	if in_area:
+		emit_signal("objective_done")
+		button.disabled = true
+		cat_audio.stream = meow_sound.stream
+		cat_audio.play()
+		var body = get_tree().get_nodes_in_group("Player")[0]
+		body.can_move = false
+		var dialog_node = body.get_node("Dialog")
+		dialog_node.visible = true
+		var rich_text = dialog_node.get_node("RichTextLabel")
+		rich_text.text = "That's... better?"
+		button_is_pressed = true
+		set_process_input(true)
+
+func _input(event):
+	if in_area and event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		var dialog_node = player_ref.get_node("Dialog")
+		dialog_node.visible = false
+		player_ref.can_move = true
+		set_process_input(false)
+		if button_is_pressed:
+			get_node("Area2D").queue_free()

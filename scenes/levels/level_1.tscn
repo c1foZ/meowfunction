@@ -2685,7 +2685,7 @@ texture = ExtResource("11_v6ha0")
 sources/0 = SubResource("TileSetAtlasSource_31oqk")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gmpev"]
-radius = 132.86
+radius = 128.368
 
 [node name="Level1" type="Node2D"]
 
@@ -2872,6 +2872,13 @@ tile_set = SubResource("TileSet_x7jkp")
 
 [node name="EndingArea2D" type="Area2D" parent="EndingButton"]
 
+[node name="BigEndingArea2D2" type="Area2D" parent="EndingButton/EndingArea2D"]
+
+[node name="BigEndingCollisionShape2D" type="CollisionShape2D" parent="EndingButton/EndingArea2D/BigEndingArea2D2"]
+position = Vector2(1920, 318)
+scale = Vector2(0.491505, 0.469767)
+shape = SubResource("CircleShape2D_gmpev")
+
 [node name="EndingCollisionShape2D" type="CollisionShape2D" parent="EndingButton/EndingArea2D"]
 position = Vector2(1920, 318)
 scale = Vector2(0.131505, 0.149767)
@@ -2891,15 +2898,22 @@ position = Vector2(770, -87)
 
 [connection signal="objective_done" from="Objectives/Tree" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Objectives/Tree/TreeTileBroken/Area2D" to="Objectives/Tree" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objectives/Tree/TreeTileBroken/Area2D" to="Objectives/Tree" method="_on_area_2d_body_exited"]
 [connection signal="objective_done" from="Objectives/Bridge" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Objectives/Bridge/BridgeTileBroken/Area2DBridge" to="Objectives/Bridge" method="_on_area_2d_bridge_broken_body_entered"]
+[connection signal="body_exited" from="Objectives/Bridge/BridgeTileBroken/Area2DBridge" to="Objectives/Bridge" method="_on_area_2d_bridge_broken_body_exited"]
 [connection signal="body_entered" from="Objectives/Bridge/BridgeTileNew/Area2D" to="Objectives/Bridge" method="_on_area_2d_body_new_bridge_entered"]
+[connection signal="body_exited" from="Objectives/Bridge/BridgeTileNew/Area2D" to="Objectives/Bridge" method="_on_area_2d_body_new_bridge_exited"]
 [connection signal="body_entered" from="Objectives/Bridge/BridgePiece/Area2DBridgePiece" to="Objectives/Bridge" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objectives/Bridge/BridgePiece/Area2DBridgePiece" to="Objectives/Bridge" method="_on_area_2d_bridge_piece_body_exited"]
 [connection signal="objective_done" from="Objectives/Flowers" to="Player" method="_on_objective_done"]
 [connection signal="body_entered" from="Objectives/Flowers/FlowersBroken/Area2D" to="Objectives/Flowers" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Objectives/Flowers/FlowersBroken/Area2D" to="Objectives/Flowers" method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="Objectives/Buttons/TreeButton" to="Objectives/Tree" method="_on_tree_button_pressed"]
 [connection signal="pressed" from="Objectives/Buttons/BridgeButton" to="Objectives/Bridge" method="_on_bridge_button_pressed"]
 [connection signal="pressed" from="Objectives/Buttons/FlowerButton" to="Objectives/Flowers" method="_on_flower_button_pressed"]
 [connection signal="body_entered" from="EndingButton/EndingArea2D" to="EndingButton" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="EndingButton/EndingArea2D/BigEndingArea2D2" to="EndingButton" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="EndingButton/EndingArea2D/BigEndingArea2D2" to="EndingArea" method="_on_big_ending_area_2d_2_body_exited"]
 [connection signal="body_entered" from="EndingArea" to="Player" method="_on_ending_area_body_entered"]
 [connection signal="objective_done" from="RadioActiveNpcCat" to="Player" method="_on_objective_done"]

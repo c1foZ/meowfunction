@@ -40,4 +40,26 @@ mouse_filter = 2
 theme_override_fonts/normal_font = ExtResource("3_uvbxx")
 text = "Something isn't quite right. I can feel it."
 
+[node name="Sprite2DBigger" type="Sprite2D" parent="."]
+visible = false
+z_index = 3
+texture_filter = 1
+position = Vector2(175.088, 57.144)
+scale = Vector2(2.05673, 2.119)
+texture = ExtResource("2_36pgd")
+
+[node name="RichTextLabelBigger" type="RichTextLabel" parent="."]
+visible = false
+modulate = Color(0.25098, 0.0941176, 0.0392157, 1)
+z_index = 3
+texture_filter = 1
+offset_left = 19.0
+offset_top = 32.0
+offset_right = 267.0
+offset_bottom = 61.0
+scale = Vector2(1.31214, 1.91182)
+mouse_filter = 2
+theme_override_fonts/normal_font = ExtResource("3_uvbxx")
+text = "A piece of something. But where does it belong?"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
