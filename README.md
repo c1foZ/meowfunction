@@ -27,7 +27,7 @@ git clone https://github.com/c1foZ/meowfunction.git
 
 ## **Play Online**
 
-Play Leap Quest on [itch.io](https://cifoz.itch.io/meowfunction).
+Play Meowfunction on [itch.io](https://cifoz.itch.io/meowfunction).
 
 ---
 
