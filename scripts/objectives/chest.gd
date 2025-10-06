@@ -42,4 +42,3 @@ func _on_button_pressed() -> void:
 	rich_text.text = "What was there... is no longer meant to be seen."
 	await get_tree().create_timer(2.0).timeout
 	dialog_node.visible = false
-
